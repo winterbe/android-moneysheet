@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Hands-on money</string>
     <string name="empty_categories">No categories found</string>
+    <string name="settings_label">Settings</string>
+    <string name="about_label">About</string>
 </resources>
