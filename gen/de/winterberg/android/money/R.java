@@ -14,21 +14,34 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int about=0x7f060002;
-        public static final int category_item=0x7f060000;
-        public static final int settings=0x7f060001;
+        public static final int about=0x7f070005;
+        public static final int add_category=0x7f070001;
+        public static final int category_item=0x7f070000;
+        public static final int edit_category=0x7f070002;
+        public static final int exit=0x7f070006;
+        public static final int remove_category=0x7f070003;
+        public static final int settings=0x7f070004;
     }
     public static final class layout {
         public static final int item=0x7f030000;
         public static final int main=0x7f030001;
     }
     public static final class menu {
-        public static final int menu=0x7f050000;
+        public static final int menu=0x7f060000;
     }
     public static final class string {
-        public static final int about_label=0x7f040003;
-        public static final int app_name=0x7f040000;
-        public static final int empty_categories=0x7f040001;
-        public static final int settings_label=0x7f040002;
+        public static final int about_label=0x7f050003;
+        public static final int add_category_label=0x7f050004;
+        public static final int app_name=0x7f050000;
+        public static final int edit_category_label=0x7f050005;
+        public static final int empty_categories=0x7f050001;
+        public static final int exit_label=0x7f050007;
+        public static final int remove_category_label=0x7f050006;
+        public static final int restore_label=0x7f050008;
+        public static final int restore_summary=0x7f050009;
+        public static final int settings_label=0x7f050002;
+    }
+    public static final class xml {
+        public static final int settings=0x7f040000;
     }
 }

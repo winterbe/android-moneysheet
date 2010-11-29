@@ -1,6 +1,7 @@
 package de.winterberg.android.money;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -54,11 +55,23 @@ public class Money extends ListActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
+            case R.id.add_category:
+                Toast.makeText(getApplicationContext(), "Add clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.edit_category:
+                Toast.makeText(getApplicationContext(), "Edit clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.remove_category:
+                Toast.makeText(getApplicationContext(), "Remove clicked", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.settings:
-                Toast.makeText(getApplicationContext(), "Settings clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, Prefs.class));
                 return true;
             case R.id.about:
                 Toast.makeText(getApplicationContext(), "About clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.exit:
+                Toast.makeText(getApplicationContext(), "Exit clicked", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;
