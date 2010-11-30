@@ -38,9 +38,8 @@ public class Money extends ListActivity {
 
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d(TAG, "onItemClick");
-                Toast.makeText(getApplicationContext(), "Item clicked: " + ((TextView)view).getText(),
-                        Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onItemClick: " + ((TextView)view).getText());
+                startActivity(new Intent(getApplicationContext(), Category.class));
             }
         });
     }
@@ -58,12 +57,12 @@ public class Money extends ListActivity {
             case R.id.add_category:
                 Toast.makeText(getApplicationContext(), "Add clicked", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.edit_category:
-                Toast.makeText(getApplicationContext(), "Edit clicked", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.remove_category:
-                Toast.makeText(getApplicationContext(), "Remove clicked", Toast.LENGTH_SHORT).show();
-                return true;
+//            case R.id.edit_category:
+//                Toast.makeText(getApplicationContext(), "Edit clicked", Toast.LENGTH_SHORT).show();
+//                return true;
+//            case R.id.remove_category:
+//                Toast.makeText(getApplicationContext(), "Remove clicked", Toast.LENGTH_SHORT).show();
+//                return true;
             case R.id.settings:
                 startActivity(new Intent(this, Prefs.class));
                 return true;
