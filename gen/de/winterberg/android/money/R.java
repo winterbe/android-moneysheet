@@ -23,14 +23,16 @@ public final class R {
         public static final int settings=0x7f070004;
     }
     public static final class layout {
-        public static final int item=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int about=0x7f030000;
+        public static final int item=0x7f030001;
+        public static final int main=0x7f030002;
     }
     public static final class menu {
         public static final int menu=0x7f060000;
     }
     public static final class string {
         public static final int about_label=0x7f050003;
+        public static final int about_text=0x7f05000a;
         public static final int add_category_label=0x7f050004;
         public static final int app_name=0x7f050000;
         public static final int edit_category_label=0x7f050005;
