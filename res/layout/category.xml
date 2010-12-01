@@ -20,7 +20,8 @@
                   android:id="@+id/amount_value"
                   android:layout_marginLeft="10dip"
                   android:editable="false"
-                  android:textSize="20sp" />
+                  android:textSize="30sp"
+                  android:textStyle="bold" />
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -28,6 +29,14 @@
                   android:textSize="20sp"
                   android:editable="false"
                   android:layout_marginLeft="5dip" />
+
+        <TextView android:id="@+id/current_input_value"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="12sp"
+                  android:editable="false"
+                  android:layout_marginLeft="15dip"
+                  android:textColor="@android:color/darker_gray" />
 
     </LinearLayout>
 
@@ -103,13 +112,17 @@
                     android:layout_width="wrap_content"
                     android:text="0"
                     android:id="@+id/keypad_0"
-                    android:layout_span="2"
                     android:onClick="onNumButtonClick" />
             <Button android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="."
                     android:id="@+id/keypad_separator"
                     android:onClick="onNumButtonClick" />
+            <Button android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="DEL"
+                    android:id="@+id/keypad_clear"
+                    android:onClick="onActionButtonClick" />
         </TableRow>
 
         <TableRow android:layout_height="wrap_content"

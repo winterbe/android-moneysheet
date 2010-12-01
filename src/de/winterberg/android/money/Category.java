@@ -20,12 +20,16 @@ public class Category extends Activity {
 
     private static final String ACTION_PLUS = "+";
     private static final String ACTION_MINUS = "-";
+    private static final String ACTION_CLEAR = "DEL";
 
     private String category;
 
     private BigDecimal amount;
 
     private StringBuilder input = new StringBuilder();
+
+    private TextView amountView;
+    private TextView inputView;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,8 @@ public class Category extends Activity {
         category = getIntent().getStringExtra(Money.KEY_CATEGORY);
         amount = new BigDecimal(0.0);
 
-        TextView amountView = (TextView) findViewById(R.id.amount_value);
+        inputView = (TextView) findViewById(R.id.current_input_value);
+        amountView = (TextView) findViewById(R.id.amount_value);
         amountView.setText(amount.toString());
     }
 
@@ -42,13 +47,21 @@ public class Category extends Activity {
         Button button = (Button) view;
         CharSequence num = button.getText();
         Log.d(TAG, "onNumButtonClick: " + num);
+        changeInputValue(num);
+    }
+
+    private void changeInputValue(CharSequence num) {
         input.append(num);
+        inputView.setText(input.toString());
     }
 
     public void onActionButtonClick(View view) {
         Button button = (Button) view;
         CharSequence action = button.getText();
         Log.d(TAG, "onActionButtonClick: " + action);
+
+        if (input.length() == 0)
+            return;
 
         if (!isInputValid()) {
             Toast.makeText(getApplicationContext(), "Input is not valid: " + input.toString(), Toast.LENGTH_LONG).show();
@@ -60,6 +73,16 @@ public class Category extends Activity {
             plus();
         } else if (ACTION_MINUS.equals(action)) {
             minus();
+        } else if (ACTION_CLEAR.equals(action)) {
+            clearDigit();
+        }
+    }
+
+    private void clearDigit() {
+        int length = input.length();
+        if (length > 0) {
+            input.setLength(length - 1);
+            inputView.setText(input.toString());
         }
     }
 
@@ -84,6 +107,7 @@ public class Category extends Activity {
 
     private void clearInput() {
         input.delete(0, input.length());
+        inputView.setText("");
     }
 
     private boolean isInputValid() {
