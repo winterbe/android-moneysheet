@@ -20,7 +20,7 @@ public class Category extends Activity {
 
     private static final String ACTION_PLUS = "+";
     private static final String ACTION_MINUS = "-";
-    private static final String ACTION_CLEAR = "DEL";
+    private static final String ACTION_CLEAR = "C";
 
     private String category;
 
