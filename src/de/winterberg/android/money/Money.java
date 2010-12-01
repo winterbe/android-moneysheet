@@ -21,7 +21,8 @@ import java.util.List;
  * @author Benjamin Winterberg
  */
 public class Money extends ListActivity {
-    protected static final String TAG = "Money";
+    static final String TAG = "Money";
+    static final String KEY_CATEGORY = "CATEGORY_NAME";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,12 @@ public class Money extends ListActivity {
 
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.d(TAG, "onItemClick: " + ((TextView)view).getText());
-                startActivity(new Intent(getApplicationContext(), Category.class));
+                String category = ((TextView) view).getText().toString();
+                Log.d(TAG, "onItemClick: " + category);
+
+                Intent intent = new Intent(getApplicationContext(), Category.class);
+                intent.putExtra(KEY_CATEGORY, category);
+                startActivity(intent);
             }
         });
     }
