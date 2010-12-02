@@ -60,7 +60,7 @@ public class Category extends Activity {
 
     public void onActionButtonClick(View view) {
         Button button = (Button) view;
-        CharSequence action = button.getText();
+        String action = button.getText().toString();
         Log.d(TAG, "onActionButtonClick: " + action);
 
         if (input.length() == 0)
@@ -72,12 +72,27 @@ public class Category extends Activity {
             return;
         }
 
+        doAction(action);
+    }
+
+    private void doAction(String action) {
         if (ACTION_PLUS.equals(action)) {
             plus();
         } else if (ACTION_MINUS.equals(action)) {
             minus();
         } else if (ACTION_CLEAR.equals(action)) {
             clearDigit();
+        }
+
+        doSave(action);
+    }
+
+    private void doSave(String action) {
+        try {
+            amountDao.save(category, input.toString(), action, amount);
+        } catch (Exception e) {
+            Log.e(TAG, "doSave() error", e);
+            Toast.makeText(this, "Error on saving amount", Toast.LENGTH_LONG).show();
         }
     }
 
