@@ -22,24 +22,27 @@ public class Category extends Activity {
     private static final String ACTION_MINUS = "-";
     private static final String ACTION_CLEAR = "C";
 
-    private String category;
-
-    private BigDecimal amount;
-
-    private StringBuilder input = new StringBuilder();
-
-    private TextView amountView;
     private TextView inputView;
+
+    private AmountDao amountDao;
+
+    private String category;
+    private BigDecimal amount;
+    private StringBuilder input;
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
 
+        this.amountDao = new AmountDao(getApplicationContext());
+
         category = getIntent().getStringExtra(Money.KEY_CATEGORY);
         amount = new BigDecimal(0.0);
+        input = new StringBuilder();
 
         inputView = (TextView) findViewById(R.id.current_input_value);
-        amountView = (TextView) findViewById(R.id.amount_value);
+        TextView amountView = (TextView) findViewById(R.id.amount_value);
         amountView.setText(amount.toString());
     }
 
