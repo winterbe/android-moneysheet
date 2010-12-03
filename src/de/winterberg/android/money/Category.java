@@ -34,13 +34,11 @@ public class Category extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
-
         this.amountDao = new AmountDao(getApplicationContext());
-
         category = getIntent().getStringExtra(Money.KEY_CATEGORY);
+        setTitle(category);
         loadLatestAmount();
         input = new StringBuilder();
-
         inputView = (TextView) findViewById(R.id.current_input_value);
         TextView amountView = (TextView) findViewById(R.id.amount_value);
         amountView.setText(amount.toString());
