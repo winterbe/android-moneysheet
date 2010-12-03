@@ -75,7 +75,8 @@ public class Money extends ListActivity {
                 startActivity(new Intent(this, About.class));
                 return true;
             case R.id.exit:
-                Toast.makeText(getApplicationContext(), "Exit clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Bye", Toast.LENGTH_SHORT).show();
+                finish();
                 return true;
         }
         return false;
