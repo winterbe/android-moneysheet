@@ -1,16 +1,15 @@
 package de.winterberg.android.money;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class Money extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        // TODO restore saved categories
         List<String> categories = new ArrayList<String>();
         categories.add("Category 1");
         categories.add("Category 2");
@@ -60,14 +60,8 @@ public class Money extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.add_category:
-                Toast.makeText(getApplicationContext(), "Add clicked", Toast.LENGTH_SHORT).show();
+                openAddCategoryDialog();
                 return true;
-//            case R.id.edit_category:
-//                Toast.makeText(getApplicationContext(), "Edit clicked", Toast.LENGTH_SHORT).show();
-//                return true;
-//            case R.id.remove_category:
-//                Toast.makeText(getApplicationContext(), "Remove clicked", Toast.LENGTH_SHORT).show();
-//                return true;
             case R.id.settings:
                 startActivity(new Intent(this, Prefs.class));
                 return true;
@@ -81,4 +75,34 @@ public class Money extends ListActivity {
         }
         return false;
     }
+
+    private void openAddCategoryDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.add_category_description)
+                .setTitle(R.string.add_category_label);
+
+        final EditText editText = new EditText(this);
+        editText.setSingleLine();
+        
+        builder.setView(editText);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addCategory(editText.getText().toString());
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // do nothing
+            }
+        });
+
+        builder.show();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void addCategory(String category) {
+        ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
+        listAdapter.add(category);
+    }
+
 }

@@ -5,6 +5,7 @@
     <string name="settings_label">Settings</string>
     <string name="about_label">About</string>
     <string name="add_category_label">Add category</string>
+    <string name="add_category_description">Please insert name for new category</string>
     <string name="edit_category_label">Edit</string>
     <string name="remove_category_label">Remove</string>
     <string name="exit_label">Exit</string>
@@ -13,4 +14,6 @@
     <string name="about_text">Hands-on money is a simple app to track your outgoings on the run. You can create different categories, e.g. supermarket or gas station. Then you\'re able to simply add money to each category.</string>
     <string name="amount_label">Amount:</string>
     <string name="category_label">Category</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
