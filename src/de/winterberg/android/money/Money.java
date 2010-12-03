@@ -27,7 +27,11 @@ public class Money extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        initListAdapter();
+        initItemListeners();
+    }
 
+    private void initListAdapter() {
         // TODO restore saved categories
         List<String> categories = new ArrayList<String>();
         categories.add("Category 1");
@@ -36,17 +40,28 @@ public class Money extends ListActivity {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.item, categories);
         setListAdapter(arrayAdapter);
+    }
 
+    private void initItemListeners() {
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String category = ((TextView) view).getText().toString();
-                Log.d(TAG, "onItemClick: " + category);
-
-                Intent intent = new Intent(getApplicationContext(), Category.class);
-                intent.putExtra(KEY_CATEGORY, category);
-                startActivity(intent);
+                onCategoryClick(category);
             }
         });
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "TODO: long click", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+    }
+
+    private void onCategoryClick(String category) {
+        Log.d(TAG, "onItemClick: " + category);
+        Intent intent = new Intent(getApplicationContext(), Category.class);
+        intent.putExtra(KEY_CATEGORY, category);
+        startActivity(intent);
     }
 
     @Override
@@ -58,7 +73,7 @@ public class Money extends ListActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.add_category:
                 openAddCategoryDialog();
                 return true;
@@ -83,7 +98,7 @@ public class Money extends ListActivity {
 
         final EditText editText = new EditText(this);
         editText.setSingleLine();
-        
+
         builder.setView(editText);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
