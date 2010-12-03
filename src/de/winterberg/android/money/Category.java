@@ -38,12 +38,16 @@ public class Category extends Activity {
         this.amountDao = new AmountDao(getApplicationContext());
 
         category = getIntent().getStringExtra(Money.KEY_CATEGORY);
-        amount = new BigDecimal(0.0);
+        loadLatestAmount();
         input = new StringBuilder();
 
         inputView = (TextView) findViewById(R.id.current_input_value);
         TextView amountView = (TextView) findViewById(R.id.amount_value);
         amountView.setText(amount.toString());
+    }
+
+    private void loadLatestAmount() {
+        amount = amountDao.loadAmount(category);
     }
 
     public void onNumButtonClick(View view) {
@@ -90,9 +94,10 @@ public class Category extends Activity {
     private void doSave(String action) {
         try {
             amountDao.save(category, input.toString(), action, amount);
+            Toast.makeText(this, "Amount saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "doSave() error", e);
-            Toast.makeText(this, "Error on saving amount", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Saving amount failed", Toast.LENGTH_LONG).show();
         }
     }
 
