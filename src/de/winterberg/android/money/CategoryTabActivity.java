@@ -16,6 +16,8 @@ public class CategoryTabActivity extends TabActivity {
 
         String category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
 
+        setTitle(category);
+
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent;

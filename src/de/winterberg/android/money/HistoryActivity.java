@@ -7,7 +7,7 @@ import android.widget.TextView;
 /**
  * @author Benjamin Winterberg
  */
-public class HistoryActivity extends Activity {
+public class HistoryActivity extends Activity implements AmountDaoAware {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,4 +17,8 @@ public class HistoryActivity extends Activity {
         setContentView(textview);
     }
 
+    public AmountDao getAmountDao() {
+        MoneyApplication application = (MoneyApplication) getApplication();
+        return application.getAmountDao();
+    }
 }
