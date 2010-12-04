@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.TabHost;
 
 /**
+ * Tab activity provides access to all category-related activities.
+ *
  * @author Benjamin Winterberg
  */
 public class CategoryTabActivity extends TabActivity {

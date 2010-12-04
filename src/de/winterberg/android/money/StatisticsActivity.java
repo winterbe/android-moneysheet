@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 /**
+ * Activity for showing various statistics for a category.
+ *
  * @author Benjamin Winterberg
  */
 public class StatisticsActivity extends Activity implements AmountDaoAware {

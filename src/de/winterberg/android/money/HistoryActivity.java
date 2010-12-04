@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 /**
+ * Activity for showing all history entries of a category.
+ *
  * @author Benjamin Winterberg
  */
 public class HistoryActivity extends Activity implements AmountDaoAware {
