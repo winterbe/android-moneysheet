@@ -29,6 +29,12 @@ public class AmountDao extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    public void removeAll(String category) {
+        Log.d(TAG, "remove all entries for category: " + category);
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_NAME, CATEGORY + "=?", new String[] { category });
+    }
+
     public List<String> findDistinctCategories() {
         List<String> categories = new ArrayList<String>();
 

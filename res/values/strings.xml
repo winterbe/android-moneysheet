@@ -7,7 +7,8 @@
     <string name="add_category_label">Add category</string>
     <string name="add_category_description">Please insert name for new category</string>
     <string name="edit_category_label">Edit</string>
-    <string name="remove_category_label">Remove</string>
+    <string name="remove_category_label">Remove category</string>
+    <string name="remove_category_confirm">Do you really want to remove this category?</string>
     <string name="exit_label">Exit</string>
     <string name="restore_label">Restore category</string>
     <string name="restore_summary">Restore last used category next time</string>

@@ -45,10 +45,37 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
         });
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "TODO: long click", Toast.LENGTH_SHORT).show();
+                final String category = ((TextView) view).getText().toString();
+                openRemoveCategoryDialog(category);
                 return true;
             }
         });
+    }
+
+    private void openRemoveCategoryDialog(final String category) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        doRemove(category);
+                        break;
+                }
+            }
+        };
+
+        new AlertDialog.Builder(MoneyActivity.this)
+                .setTitle(R.string.remove_category_label)
+                .setMessage(R.string.remove_category_confirm)
+                .setPositiveButton(R.string.ok, dialogClickListener)
+                .setNegativeButton(R.string.cancel, dialogClickListener)
+                .show();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doRemove(String category) {
+        getAmountDao().removeAll(category);
+        ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
+        listAdapter.remove(category);
     }
 
     private void onCategoryClick(String category) {
