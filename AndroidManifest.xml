@@ -3,17 +3,22 @@
           package="de.winterberg.android.money"
           android:versionCode="1"
           android:versionName="1.0">
-    <application android:label="Hands-on money" android:icon="@drawable/icon">
-        <activity android:name="Money"
+    <application android:label="Hands-on money"
+                 android:icon="@drawable/icon"
+                 android:name="MoneyApplication">
+        <activity android:name=".Money"
                   android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Prefs" android:label="@string/settings_label"/>
-        <activity android:name=".About" android:label="@string/about_label"
-                  android:theme="@android:style/Theme.Dialog"/>
-        <activity android:name=".Category" android:label="@string/category_label"/>
+        <activity android:name=".Prefs"
+                  android:label="@string/settings_label" />
+        <activity android:name=".About"
+                  android:label="@string/about_label"
+                  android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Category"
+                  android:label="@string/category_label" />
     </application>
 </manifest> 

@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Benjamin Winterberg
  */
-public class Money extends ListActivity {
+public class Money extends ListActivity implements AmountDaoAware {
     static final String TAG = "Money";
     static final String KEY_CATEGORY = "CATEGORY_NAME";
 
@@ -29,6 +29,7 @@ public class Money extends ListActivity {
         setContentView(R.layout.main);
         initListAdapter();
         initItemListeners();
+        Log.d(TAG, "AmountDao: " + getAmountDao());
     }
 
     private void initListAdapter() {
@@ -120,4 +121,8 @@ public class Money extends ListActivity {
         listAdapter.add(category);
     }
 
+    public AmountDao getAmountDao() {
+        MoneyApplication application = (MoneyApplication) getApplication();
+        return application.getAmountDao();
+    }
 }

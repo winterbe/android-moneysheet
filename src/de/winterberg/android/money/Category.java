@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  *
  * @author Benjamin Winterberg
  */
-public class Category extends Activity {
+public class Category extends Activity implements AmountDaoAware {
     private static final String TAG = "Category";
 
     private static final String ACTION_PLUS = "+";
@@ -23,8 +23,6 @@ public class Category extends Activity {
     private static final String ACTION_CLEAR = "C";
 
     private TextView inputView;
-
-    private AmountDao amountDao;
 
     private String category;
     private BigDecimal amount;
@@ -34,7 +32,6 @@ public class Category extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
-        this.amountDao = new AmountDao(getApplicationContext());
         category = getIntent().getStringExtra(Money.KEY_CATEGORY);
         setTitle(category);
         loadLatestAmount();
@@ -45,7 +42,7 @@ public class Category extends Activity {
     }
 
     private void loadLatestAmount() {
-        amount = amountDao.loadAmount(category);
+        amount = getAmountDao().loadAmount(category);
     }
 
     public void onNumButtonClick(View view) {
@@ -91,7 +88,7 @@ public class Category extends Activity {
 
     private void doSave(String action) {
         try {
-            amountDao.save(category, input.toString(), action, amount);
+            getAmountDao().save(category, input.toString(), action, amount);
             Toast.makeText(this, "Amount saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "doSave() error", e);
@@ -140,4 +137,8 @@ public class Category extends Activity {
         return true;
     }
 
+    public AmountDao getAmountDao() {
+        MoneyApplication application = (MoneyApplication) getApplication();
+        return application.getAmountDao();
+    }
 }
