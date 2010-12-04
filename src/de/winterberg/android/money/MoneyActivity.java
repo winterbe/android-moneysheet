@@ -113,6 +113,10 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
         return false;
     }
 
+    public void onAddCategoryButtonBlick(View view) {
+        openAddCategoryDialog();
+    }
+
     private void openAddCategoryDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setMessage(R.string.add_category_description)
