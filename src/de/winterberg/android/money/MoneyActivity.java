@@ -19,8 +19,8 @@ import java.util.List;
  *
  * @author Benjamin Winterberg
  */
-public class Money extends ListActivity implements AmountDaoAware {
-    static final String TAG = "Money";
+public class MoneyActivity extends ListActivity implements AmountDaoAware {
+    static final String TAG = "MoneyActivity";
     static final String KEY_CATEGORY = "CATEGORY_NAME";
 
     @Override
@@ -29,7 +29,6 @@ public class Money extends ListActivity implements AmountDaoAware {
         setContentView(R.layout.main);
         initListAdapter();
         initItemListeners();
-        Log.d(TAG, "AmountDao: " + getAmountDao());
     }
 
     private void initListAdapter() {
@@ -60,7 +59,7 @@ public class Money extends ListActivity implements AmountDaoAware {
 
     private void onCategoryClick(String category) {
         Log.d(TAG, "onItemClick: " + category);
-        Intent intent = new Intent(getApplicationContext(), Category.class);
+        Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
         intent.putExtra(KEY_CATEGORY, category);
         startActivity(intent);
     }
@@ -79,10 +78,10 @@ public class Money extends ListActivity implements AmountDaoAware {
                 openAddCategoryDialog();
                 return true;
             case R.id.settings:
-                startActivity(new Intent(this, Prefs.class));
+                startActivity(new Intent(this, PrefsActivity.class));
                 return true;
             case R.id.about:
-                startActivity(new Intent(this, About.class));
+                startActivity(new Intent(this, AboutActivity.class));
                 return true;
             case R.id.exit:
                 Toast.makeText(getApplicationContext(), "Bye", Toast.LENGTH_SHORT).show();

@@ -1,18 +1,18 @@
 package de.winterberg.android.money;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 
 /**
- * Preferences activity.
- *
+ * Activity for displaying an about dialog.
+ * 
  * @author Benjamin Winterberg
  */
-public class Prefs extends PreferenceActivity {
+public class AboutActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings);
+        setContentView(R.layout.about);
     }
 
 }

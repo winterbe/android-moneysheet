@@ -15,8 +15,8 @@ import java.math.BigDecimal;
  *
  * @author Benjamin Winterberg
  */
-public class Category extends Activity implements AmountDaoAware {
-    private static final String TAG = "Category";
+public class CategoryActivity extends Activity implements AmountDaoAware {
+    private static final String TAG = "CategoryActivity";
 
     private static final String ACTION_PLUS = "+";
     private static final String ACTION_MINUS = "-";
@@ -32,7 +32,7 @@ public class Category extends Activity implements AmountDaoAware {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
-        category = getIntent().getStringExtra(Money.KEY_CATEGORY);
+        category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
         setTitle(category);
         loadLatestAmount();
         input = new StringBuilder();
