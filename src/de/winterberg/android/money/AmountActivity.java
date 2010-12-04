@@ -15,8 +15,8 @@ import java.math.BigDecimal;
  *
  * @author Benjamin Winterberg
  */
-public class CategoryActivity extends Activity implements AmountDaoAware {
-    private static final String TAG = "CategoryActivity";
+public class AmountActivity extends Activity implements AmountDaoAware {
+    private static final String TAG = "AmountActivity";
 
     protected static final String ACTION_PLUS = "+";
     private static final String ACTION_MINUS = "-";

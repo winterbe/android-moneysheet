@@ -81,7 +81,7 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
 
     private void onCategoryClick(String category) {
         Log.d(TAG, "onItemClick: " + category);
-        Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CategoryTabActivity.class);
         intent.putExtra(KEY_CATEGORY, category);
         startActivity(intent);
     }
@@ -106,7 +106,6 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
                 startActivity(new Intent(this, AboutActivity.class));
                 return true;
             case R.id.exit:
-                Toast.makeText(getApplicationContext(), "Bye", Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
         }
@@ -147,7 +146,7 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
 
     @SuppressWarnings("unchecked")
     private void addCategory(String category) {
-        getAmountDao().save(category, null, CategoryActivity.ACTION_PLUS, new BigDecimal(0.0));
+        getAmountDao().save(category, null, AmountActivity.ACTION_PLUS, new BigDecimal(0.0));
         ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
         listAdapter.add(category);
     }

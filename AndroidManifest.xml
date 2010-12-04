@@ -18,8 +18,11 @@
         <activity android:name=".AboutActivity"
                   android:label="@string/about_label"
                   android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".CategoryActivity"
+        <activity android:name=".AmountActivity"
                   android:label="@string/category_label" />
+        <activity android:name=".CategoryTabActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".StatisticsActivity" />
     </application>
     <uses-sdk android:minSdkVersion="3" android:maxSdkVersion="8"/>
 </manifest> 
