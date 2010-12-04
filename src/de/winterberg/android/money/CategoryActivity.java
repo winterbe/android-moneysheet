@@ -82,8 +82,6 @@ public class CategoryActivity extends Activity implements AmountDaoAware {
         } else if (ACTION_CLEAR.equals(action)) {
             clearDigit();
         }
-
-        doSave(action);
     }
 
     private void doSave(String action) {
@@ -107,6 +105,7 @@ public class CategoryActivity extends Activity implements AmountDaoAware {
     private void plus() {
         BigDecimal inputNumber = new BigDecimal(input.toString());
         amount = amount.add(inputNumber);
+        doSave(ACTION_PLUS);
         clearInput();
         refreshView();
     }
@@ -114,6 +113,7 @@ public class CategoryActivity extends Activity implements AmountDaoAware {
     private void minus() {
         BigDecimal inputNumber = new BigDecimal(input.toString());
         amount = amount.subtract(inputNumber);
+        doSave(ACTION_MINUS);
         clearInput();
         refreshView();
     }
