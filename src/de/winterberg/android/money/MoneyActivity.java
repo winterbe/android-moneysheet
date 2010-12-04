@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,12 +31,7 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
     }
 
     private void initListAdapter() {
-        // TODO restore saved categories
-        List<String> categories = new ArrayList<String>();
-        categories.add("Category 1");
-        categories.add("Category 2");
-        categories.add("Category 3");
-
+        List<String> categories = getAmountDao().findDistinctCategories();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.item, categories);
         setListAdapter(arrayAdapter);
     }

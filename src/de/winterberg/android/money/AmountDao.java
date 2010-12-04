@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static de.winterberg.android.money.Constants.*;
 
@@ -25,6 +27,20 @@ public class AmountDao extends SQLiteOpenHelper {
 
     public AmountDao(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public List<String> findDistinctCategories() {
+        List<String> categories = new ArrayList<String>();
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(true, TABLE_NAME, new String[]{CATEGORY}, null, null, null, null, CATEGORY + " asc", null);
+        while (cursor.moveToNext()) {
+            String category = cursor.getString(0);
+            categories.add(category);
+        }
+        cursor.close();
+
+        return categories;
     }
 
     public BigDecimal loadAmount(String category) {
