@@ -31,7 +31,7 @@ public class AmountActivity extends Activity implements AmountDaoAware {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category);
+        setContentView(R.layout.amount);
         category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
         setTitle(category);
         loadLatestAmount();
