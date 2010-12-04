@@ -53,6 +53,7 @@ public final class R {
         public static final int amount_label=0x7f05000d;
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f050010;
+        public static final int category_already_exists=0x7f050011;
         public static final int category_label=0x7f05000e;
         public static final int edit_category_label=0x7f050006;
         public static final int empty_categories=0x7f050001;

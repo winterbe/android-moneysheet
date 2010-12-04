@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -123,7 +124,12 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
         builder.setView(editText);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
-                addCategory(editText.getText().toString());
+                String category = editText.getText().toString();
+                if (exists(category)) {
+                    Toast.makeText(getApplicationContext(), R.string.category_already_exists, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                addCategory(category);
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -137,8 +143,15 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
 
     @SuppressWarnings("unchecked")
     private void addCategory(String category) {
+        getAmountDao().save(category, null, CategoryActivity.ACTION_PLUS, new BigDecimal(0.0));
         ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
         listAdapter.add(category);
+    }
+
+    @SuppressWarnings("unchecked")
+    private boolean exists(String category) {
+        ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
+        return listAdapter.getPosition(category) > -1;
     }
 
     public AmountDao getAmountDao() {
