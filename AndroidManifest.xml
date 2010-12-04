@@ -21,4 +21,5 @@
         <activity android:name=".CategoryActivity"
                   android:label="@string/category_label" />
     </application>
+    <uses-sdk android:minSdkVersion="3" android:maxSdkVersion="8"/>
 </manifest> 
