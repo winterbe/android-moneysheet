@@ -146,7 +146,7 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
 
     @SuppressWarnings("unchecked")
     private void addCategory(String category) {
-        getAmountDao().save(category, null, AmountActivity.ACTION_PLUS, new BigDecimal(0.0));
+        getAmountDao().save(category, "0.0", AmountActivity.ACTION_PLUS, new BigDecimal(0.0));
         ArrayAdapter<String> listAdapter = (ArrayAdapter<String>) getListAdapter();
         listAdapter.add(category);
     }
