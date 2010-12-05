@@ -26,14 +26,14 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.category);
         initListAdapter();
         initItemListeners();
     }
 
     private void initListAdapter() {
         List<String> categories = getAmountDao().findDistinctCategories();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.item, categories);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.category_item, categories);
         setListAdapter(arrayAdapter);
     }
 

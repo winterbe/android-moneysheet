@@ -17,13 +17,13 @@ public final class R {
         public static final int about=0x7f070017;
         public static final int add_category=0x7f070015;
         public static final int amount_value=0x7f070000;
-        public static final int category_item=0x7f070014;
+        public static final int category_item=0x7f070010;
         public static final int current_input_value=0x7f070001;
         public static final int exit=0x7f070018;
-        public static final int history_action=0x7f070011;
-        public static final int history_amount=0x7f070013;
-        public static final int history_diff=0x7f070012;
-        public static final int history_time=0x7f070010;
+        public static final int history_action=0x7f070012;
+        public static final int history_amount=0x7f070014;
+        public static final int history_diff=0x7f070013;
+        public static final int history_time=0x7f070011;
         public static final int keypad_0=0x7f07000b;
         public static final int keypad_1=0x7f070002;
         public static final int keypad_2=0x7f070003;
@@ -43,10 +43,10 @@ public final class R {
     public static final class layout {
         public static final int about=0x7f030000;
         public static final int amount=0x7f030001;
-        public static final int history=0x7f030002;
-        public static final int history_item=0x7f030003;
-        public static final int item=0x7f030004;
-        public static final int main=0x7f030005;
+        public static final int category=0x7f030002;
+        public static final int category_item=0x7f030003;
+        public static final int history=0x7f030004;
+        public static final int history_item=0x7f030005;
         public static final int tabs=0x7f030006;
     }
     public static final class menu {
