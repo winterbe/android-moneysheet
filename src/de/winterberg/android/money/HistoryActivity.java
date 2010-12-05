@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -54,13 +53,24 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
 
         simpleCursorAdapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
             public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-                TextView textView;
+                TextView textView = (TextView) view;
                 switch (columnIndex) {
                     case 1:
                         long timeInMillis = cursor.getLong(columnIndex);
                         String formattedString = simpleDateFormat.format(new Date(timeInMillis));
-                        textView = (TextView) view;
                         textView.setText(formattedString);
+                        return true;
+                    case 2:
+                        String action = cursor.getString(columnIndex);
+                        textView.setText("(" + action);
+                        return true;
+                    case 3:
+                        String diff = cursor.getString(columnIndex);
+                        textView.setText(diff + ")");
+                        return true;
+                    case 4:
+                        String amount = cursor.getString(columnIndex);
+                        textView.setText(amount + " €");
                         return true;
                     default:
                         return false;
