@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+
+    <TextView android:id="@+id/history_time"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_marginRight="10dip" />
+
+    <TextView android:id="@+id/history_action"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_toRightOf="@id/history_time" />
+
+    <TextView android:id="@+id/history_diff"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_toRightOf="@id/history_action"
+              android:layout_marginRight="10dip" />
+
+    <TextView android:id="@+id/history_amount"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_toRightOf="@id/history_diff" />
+
+</RelativeLayout>

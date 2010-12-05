@@ -29,10 +29,16 @@ public class AmountDao extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    public Cursor findAll(String category) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.query(TABLE_NAME, new String[]{_ID, TIME, ACTION, VALUE, AMOUNT}, CATEGORY + "=?", new String[]{category},
+                null, null, TIME + " desc");
+    }
+
     public void removeAll(String category) {
         Log.d(TAG, "remove all entries for category: " + category);
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(TABLE_NAME, CATEGORY + "=?", new String[] { category });
+        db.delete(TABLE_NAME, CATEGORY + "=?", new String[]{category});
     }
 
     public List<String> findDistinctCategories() {
@@ -53,9 +59,9 @@ public class AmountDao extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(
                 TABLE_NAME,
-                new String[] { AMOUNT, "max(" + TIME + ")" },
+                new String[]{AMOUNT, "max(" + TIME + ")"},
                 CATEGORY + "=?",
-                new String[] { category },
+                new String[]{category},
                 CATEGORY,
                 null,
                 TIME + " desc");
