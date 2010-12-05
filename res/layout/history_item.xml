@@ -7,22 +7,33 @@
     <TextView android:id="@+id/history_time"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:layout_marginRight="10dip" />
+              android:layout_marginRight="15dip"
+              android:textSize="16sp" />
 
     <TextView android:id="@+id/history_action"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:layout_toRightOf="@id/history_time" />
+              android:layout_toRightOf="@id/history_time"
+              android:textSize="16sp" />
 
     <TextView android:id="@+id/history_diff"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:layout_toRightOf="@id/history_action"
-              android:layout_marginRight="10dip" />
+              android:layout_marginRight="15dip"
+              android:textSize="16sp"
+              android:layout_centerVertical="true" />
 
     <TextView android:id="@+id/history_amount"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:layout_toRightOf="@id/history_diff" />
+              android:layout_toRightOf="@id/history_diff"
+              android:textSize="16sp" />
+
+    <TextView android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_toRightOf="@id/history_amount"
+              android:textSize="16sp"
+              android:text=" €" />
 
 </RelativeLayout>
