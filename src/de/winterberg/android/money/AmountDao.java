@@ -94,7 +94,7 @@ public class AmountDao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + "(" +
                 _ID + " integer primary key autoincrement, " +
-                TIME + " integer not null, " +
+                TIME + " long not null, " +
                 CATEGORY + " string not null, " +
                 VALUE + " string, " +
                 ACTION + " string not null, " +

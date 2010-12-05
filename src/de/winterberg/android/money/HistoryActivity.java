@@ -56,7 +56,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                 if (columnIndex != 1)
                     return false;
 
-                int timeInMillis = cursor.getInt(columnIndex);
+                long timeInMillis = cursor.getLong(columnIndex);
                 String formattedString = simpleDateFormat.format(new Date(timeInMillis));
                 TextView textView = (TextView) view;
                 textView.setText(formattedString);
