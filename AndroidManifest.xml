@@ -4,7 +4,7 @@
           android:versionCode="1"
           android:versionName="1.0">
     <application android:label="Hands-on money"
-                 android:icon="@drawable/icon"
+                 android:icon="@drawable/ic_launcher_money"
                  android:name="MoneyApplication"
                  android:debuggable="true">
         <activity android:name=".MoneyActivity"
