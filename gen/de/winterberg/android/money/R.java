@@ -10,39 +10,44 @@ package de.winterberg.android.money;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int keypad_background_dark=0x7f050000;
+        public static final int keypad_background_light=0x7f050001;
+    }
     public static final class drawable {
         public static final int ic_launcher_money=0x7f020000;
         public static final int ic_menu_add=0x7f020001;
         public static final int ic_menu_close_clear_cancel=0x7f020002;
         public static final int ic_menu_info_details=0x7f020003;
         public static final int ic_menu_preferences=0x7f020004;
+        public static final int keypad=0x7f020005;
     }
     public static final class id {
-        public static final int about=0x7f080017;
-        public static final int add_category=0x7f080015;
-        public static final int amount_value=0x7f080000;
-        public static final int category_item=0x7f080010;
-        public static final int current_input_value=0x7f080001;
-        public static final int exit=0x7f080018;
-        public static final int history_action=0x7f080012;
-        public static final int history_amount=0x7f080014;
-        public static final int history_diff=0x7f080013;
-        public static final int history_time=0x7f080011;
-        public static final int keypad_0=0x7f08000b;
-        public static final int keypad_1=0x7f080002;
-        public static final int keypad_2=0x7f080003;
-        public static final int keypad_3=0x7f080004;
-        public static final int keypad_4=0x7f080005;
-        public static final int keypad_5=0x7f080006;
-        public static final int keypad_6=0x7f080007;
-        public static final int keypad_7=0x7f080008;
-        public static final int keypad_8=0x7f080009;
-        public static final int keypad_9=0x7f08000a;
-        public static final int keypad_clear=0x7f08000d;
-        public static final int keypad_minus=0x7f08000f;
-        public static final int keypad_plus=0x7f08000e;
-        public static final int keypad_separator=0x7f08000c;
-        public static final int settings=0x7f080016;
+        public static final int about=0x7f090017;
+        public static final int add_category=0x7f090015;
+        public static final int amount_value=0x7f090000;
+        public static final int category_item=0x7f090010;
+        public static final int current_input_value=0x7f090001;
+        public static final int exit=0x7f090018;
+        public static final int history_action=0x7f090012;
+        public static final int history_amount=0x7f090014;
+        public static final int history_diff=0x7f090013;
+        public static final int history_time=0x7f090011;
+        public static final int keypad_0=0x7f09000b;
+        public static final int keypad_1=0x7f090002;
+        public static final int keypad_2=0x7f090003;
+        public static final int keypad_3=0x7f090004;
+        public static final int keypad_4=0x7f090005;
+        public static final int keypad_5=0x7f090006;
+        public static final int keypad_6=0x7f090007;
+        public static final int keypad_7=0x7f090008;
+        public static final int keypad_8=0x7f090009;
+        public static final int keypad_9=0x7f09000a;
+        public static final int keypad_clear=0x7f09000d;
+        public static final int keypad_minus=0x7f09000f;
+        public static final int keypad_plus=0x7f09000e;
+        public static final int keypad_separator=0x7f09000c;
+        public static final int settings=0x7f090016;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -54,30 +59,34 @@ public final class R {
         public static final int tabs=0x7f030006;
     }
     public static final class menu {
-        public static final int menu=0x7f070000;
+        public static final int menu=0x7f080000;
     }
     public static final class string {
-        public static final int about_label=0x7f050003;
-        public static final int about_text=0x7f05000c;
-        public static final int add_category_description=0x7f050005;
-        public static final int add_category_label=0x7f050004;
-        public static final int amount_label=0x7f05000d;
-        public static final int app_name=0x7f050000;
-        public static final int cancel=0x7f050010;
-        public static final int category_already_exists=0x7f050011;
-        public static final int category_label=0x7f05000e;
-        public static final int edit_category_label=0x7f050006;
-        public static final int empty_categories=0x7f050001;
-        public static final int exit_label=0x7f050009;
-        public static final int ok=0x7f05000f;
-        public static final int remove_category_confirm=0x7f050008;
-        public static final int remove_category_label=0x7f050007;
-        public static final int restore_label=0x7f05000a;
-        public static final int restore_summary=0x7f05000b;
-        public static final int settings_label=0x7f050002;
+        public static final int about_label=0x7f060003;
+        public static final int about_text=0x7f06000c;
+        public static final int add_category_description=0x7f060005;
+        public static final int add_category_label=0x7f060004;
+        public static final int amount_label=0x7f06000d;
+        public static final int app_name=0x7f060000;
+        public static final int cancel=0x7f060010;
+        public static final int category_already_exists=0x7f060011;
+        public static final int category_label=0x7f06000e;
+        public static final int edit_category_label=0x7f060006;
+        public static final int empty_categories=0x7f060001;
+        public static final int exit_label=0x7f060009;
+        public static final int ok=0x7f06000f;
+        public static final int remove_category_confirm=0x7f060008;
+        public static final int remove_category_label=0x7f060007;
+        public static final int restore_label=0x7f06000a;
+        public static final int restore_summary=0x7f06000b;
+        public static final int settings_label=0x7f060002;
     }
     public static final class style {
-        public static final int numberButton=0x7f060000;
+        public static final int KeyPad=0x7f070003;
+        public static final int KeyPadButton=0x7f070000;
+        public static final int KeyPadButton_Action=0x7f070002;
+        public static final int KeyPadButton_Num=0x7f070001;
+        public static final int KeyPadRow=0x7f070004;
     }
     public static final class xml {
         public static final int settings=0x7f040000;

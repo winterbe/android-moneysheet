@@ -1,2 +1,4 @@
 <resources>
+    <color name="keypad_background_dark">#ff333333</color>
+    <color name="keypad_background_light">#ffcccccc</color>
 </resources>

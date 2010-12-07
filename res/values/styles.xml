@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="numberButton">
+    <style name="KeyPadButton"
+           parent="android:Widget.Button.Transparent">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:onClick">onNumberButtonClick</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="KeyPadButton.Num">
+        <item name="android:onClick">onNumButtonClick</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="KeyPadButton.Action">
+        <item name="android:onClick">onActionButtonClick</item>
+    </style>
+    <style name="KeyPad">
+        <item name="android:background">@drawable/keypad</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:layout_marginTop">10dip</item>
+        <item name="android:stretchColumns">*</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <style name="KeyPadRow">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
     </style>
 </resources>

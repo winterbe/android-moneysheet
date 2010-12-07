@@ -3,8 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_height="fill_parent"
               android:layout_width="fill_parent"
-              android:orientation="vertical"
-              android:padding="10dip">
+              android:orientation="vertical">
 
     <LinearLayout android:layout_height="wrap_content"
                   android:layout_width="fill_parent"
@@ -40,83 +39,64 @@
 
     </LinearLayout>
 
-    <TableLayout android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dip"
-                 android:stretchColumns="*">
+    <TableLayout style="@style/KeyPad">
 
-        <TableRow android:layout_height="wrap_content"
-                  android:layout_width="wrap_content">
-            <Button style="@style/numberButton"
+        <TableRow style="@style/KeyPadRow">
+            <Button style="@style/KeyPadButton.Num"
                     android:text="1"
                     android:id="@+id/keypad_1" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="2"
                     android:id="@+id/keypad_2" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="3"
                     android:id="@+id/keypad_3" />
         </TableRow>
 
-        <TableRow android:layout_height="wrap_content"
-                  android:layout_width="wrap_content">
-            <Button style="@style/numberButton"
+        <TableRow style="@style/KeyPadRow">
+            <Button style="@style/KeyPadButton.Num"
                     android:text="4"
                     android:id="@+id/keypad_4" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="5"
                     android:id="@+id/keypad_5" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="6"
                     android:id="@+id/keypad_6" />
         </TableRow>
 
-        <TableRow android:layout_height="wrap_content"
-                  android:layout_width="wrap_content">
-            <Button style="@style/numberButton"
+        <TableRow style="@style/KeyPadRow">
+            <Button style="@style/KeyPadButton.Num"
                     android:text="7"
                     android:id="@+id/keypad_7" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="8"
                     android:id="@+id/keypad_8" />
-            <Button style="@style/numberButton"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="9"
                     android:id="@+id/keypad_9" />
         </TableRow>
 
-        <TableRow android:layout_height="wrap_content"
-                  android:layout_width="wrap_content">
-
-            <Button style="@style/numberButton"
+        <TableRow style="@style/KeyPadRow">
+            <Button style="@style/KeyPadButton.Num"
                     android:text="0"
                     android:id="@+id/keypad_0" />
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
+            <Button style="@style/KeyPadButton.Num"
                     android:text="."
-                    android:id="@+id/keypad_separator"
-                    android:onClick="onNumButtonClick" />
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/keypad_separator" />
+            <Button style="@style/KeyPadButton.Action"
                     android:text="C"
-                    android:id="@+id/keypad_clear"
-                    android:onClick="onActionButtonClick" />
+                    android:id="@+id/keypad_clear" />
         </TableRow>
 
-        <TableRow android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:layout_marginTop="15dip">
-
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
+        <TableRow style="@style/KeyPadRow">
+            <Button style="@style/KeyPadButton.Action"
                     android:text="+"
                     android:id="@+id/keypad_plus"
-                    android:layout_span="2"
-                    android:onClick="onActionButtonClick" />
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
+                    android:layout_span="2" />
+            <Button style="@style/KeyPadButton.Action"
                     android:text="-"
-                    android:id="@+id/keypad_minus"
-                    android:onClick="onActionButtonClick" />
+                    android:id="@+id/keypad_minus" />
         </TableRow>
 
     </TableLayout>
