@@ -4,4 +4,5 @@
               android:endColor="@color/keypad_background_light"
               android:angle="90" />
     <corners android:radius="5dip" />
+    <stroke android:width="1dp" android:color="@color/keypad_border" />
 </shape>
