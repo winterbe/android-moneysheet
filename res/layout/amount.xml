@@ -89,7 +89,7 @@
                     android:id="@+id/keypad_clear" />
         </TableRow>
 
-        <TableRow style="@style/KeyPadRow">
+        <TableRow style="@style/KeyPadRow" android:layout_marginTop="15dip">
             <Button style="@style/KeyPadButton.Action"
                     android:text="+"
                     android:id="@+id/keypad_plus"

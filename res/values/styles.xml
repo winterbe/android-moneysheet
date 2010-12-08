@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="KeyPadButton"
-           parent="android:Widget.Button.Transparent">
+           parent="android:Widget.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowColor">#ffffff</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
     </style>
     <style name="KeyPadButton.Num">
         <item name="android:onClick">onNumButtonClick</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff303030</item>
     </style>
     <style name="KeyPadButton.Action">
         <item name="android:onClick">onActionButtonClick</item>
+        <item name="android:textColor">#ff606060</item>
     </style>
     <style name="KeyPad">
         <item name="android:background">@drawable/keypad</item>
