@@ -3,6 +3,7 @@ package de.winterberg.android.money;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class AmountActivity extends Activity implements AmountDaoAware {
 
     public void onNumButtonClick(View view) {
         Button button = (Button) view;
+        button.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
         CharSequence num = button.getText();
         Log.d(TAG, "onNumButtonClick: " + num);
         changeInputValue(num);
@@ -59,6 +61,7 @@ public class AmountActivity extends Activity implements AmountDaoAware {
 
     public void onActionButtonClick(View view) {
         Button button = (Button) view;
+        button.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
         String action = button.getText().toString();
         Log.d(TAG, "onActionButtonClick: " + action);
 
