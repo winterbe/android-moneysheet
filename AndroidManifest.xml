@@ -21,7 +21,8 @@
                   android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".AmountActivity"
                   android:label="@string/category_label" />
-        <activity android:name=".CategoryTabActivity" />
+        <activity android:name=".CategoryTabActivity"
+                  android:screenOrientation="portrait" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".StatisticsActivity" />
     </application>
