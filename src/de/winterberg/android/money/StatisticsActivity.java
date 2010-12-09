@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Activity for showing various statistics for a category.
@@ -32,12 +33,26 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
 
     private void refreshData() {
         showTotalAmount();
+        showFirstDate();
+        showLastDate();
+    }
+
+    private void showFirstDate() {
+        Date firstDate = getAmountDao().findFirstDate(category);
+        TextView view = (TextView) findViewById(R.id.stats_from);
+        view.setText(application.getDateFormat().format(firstDate));
+    }
+
+    private void showLastDate() {
+        Date firstDate = getAmountDao().findLastDate(category);
+        TextView view = (TextView) findViewById(R.id.stats_to);
+        view.setText(application.getDateFormat().format(firstDate));
     }
 
     private void showTotalAmount() {
         BigDecimal totalAmount = getAmountDao().loadAmount(category);
         TextView view = (TextView) findViewById(R.id.stats_current_amount);
-        view.setText(totalAmount.toString());
+        view.setText(totalAmount.toString() + " €");
     }
 
     public AmountDao getAmountDao() {

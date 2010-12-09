@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static de.winterberg.android.money.Constants.*;
@@ -27,6 +28,22 @@ public class AmountDao extends SQLiteOpenHelper {
 
     public AmountDao(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public Date findFirstDate(String category) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("select min(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
+        cursor.moveToFirst();
+        long timestamp = cursor.getLong(0);
+        return new Date(timestamp);
+    }
+
+    public Date findLastDate(String category) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("select max(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
+        cursor.moveToFirst();
+        long timestamp = cursor.getLong(0);
+        return new Date(timestamp);
     }
 
     public Cursor findAll(String category) {
