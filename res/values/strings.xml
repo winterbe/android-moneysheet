@@ -18,4 +18,15 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="category_already_exists">Category already exists</string>
+    <string name="stats_current_amount_label">Total amount:</string>
+    <string name="stats_from_label">First entry:</string>
+    <string name="stats_to_label">Last entry:</string>
+    <string name="stats_sum_day_label">Sum / last day:</string>
+    <string name="stats_sum_week_label">Sum / last week:</string>
+    <string name="stats_sum_month_label">Sum / last month:</string>
+    <string name="stats_sum_year_label">Sum / last month:</string>
+    <string name="stats_average_day_label">Average / day:</string>
+    <string name="stats_average_week_label">Average / week:</string>
+    <string name="stats_average_month_label">Average / month:</string>
+    <string name="stats_average_year_label">Average / month:</string>
 </resources>
