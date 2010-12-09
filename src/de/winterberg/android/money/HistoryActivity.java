@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static de.winterberg.android.money.Constants.*;
@@ -18,14 +17,15 @@ import static de.winterberg.android.money.Constants.*;
  * @author Benjamin Winterberg
  */
 public class HistoryActivity extends ListActivity implements AmountDaoAware {
+    private MoneyApplication application;
+
     private String category;
-    private SimpleDateFormat simpleDateFormat;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history);
         category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
-        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        application = (MoneyApplication) getApplication();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                 switch (columnIndex) {
                     case 1:
                         long timeInMillis = cursor.getLong(columnIndex);
-                        String formattedString = simpleDateFormat.format(new Date(timeInMillis));
+                        String formattedString = application.getDateFormat().format(new Date(timeInMillis));
                         textView.setText(formattedString);
                         return true;
                     case 2:
