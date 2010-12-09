@@ -33,19 +33,25 @@ public class AmountDao extends SQLiteOpenHelper {
     public Date findFirstDate(String category) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("select min(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
-        cursor.moveToFirst();
-        long timestamp = cursor.getLong(0);
-        cursor.close();
-        return new Date(timestamp);
+        try {
+            cursor.moveToFirst();
+            long timestamp = cursor.getLong(0);
+            return new Date(timestamp);
+        } finally {
+            cursor.close();
+        }
     }
 
     public Date findLastDate(String category) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("select max(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
-        cursor.moveToFirst();
-        long timestamp = cursor.getLong(0);
-        cursor.close();
-        return new Date(timestamp);
+        try {
+            cursor.moveToFirst();
+            long timestamp = cursor.getLong(0);
+            return new Date(timestamp);
+        } finally {
+            cursor.close();
+        }
     }
 
     public Cursor findAll(String category) {
@@ -65,13 +71,15 @@ public class AmountDao extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(true, TABLE_NAME, new String[]{CATEGORY}, null, null, null, null, CATEGORY + " asc", null);
-        while (cursor.moveToNext()) {
-            String category = cursor.getString(0);
-            categories.add(category);
+        try {
+            while (cursor.moveToNext()) {
+                String category = cursor.getString(0);
+                categories.add(category);
+            }
+            return categories;
+        } finally {
+            cursor.close();
         }
-        cursor.close();
-
-        return categories;
     }
 
     public BigDecimal loadAmount(String category) {
@@ -84,13 +92,17 @@ public class AmountDao extends SQLiteOpenHelper {
                 CATEGORY,
                 null,
                 TIME + " desc");
-        if (cursor.moveToNext()) {
-            String amount = cursor.getString(0);
-            Log.d(TAG, "loadAmount: " + amount);
-            return new BigDecimal(amount);
+        try {
+            if (cursor.moveToNext()) {
+                String amount = cursor.getString(0);
+                Log.d(TAG, "loadAmount: " + amount);
+                return new BigDecimal(amount);
+            }
+            Log.d(TAG, "loadAmount: no data found");
+            return new BigDecimal(0.0);
+        } finally {
+            cursor.close();
         }
-        Log.d(TAG, "loadAmount: no data found");
-        return new BigDecimal(0.0);
     }
 
     public void save(String category, String value, String action, BigDecimal amount) {
