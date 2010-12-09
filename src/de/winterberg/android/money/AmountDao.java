@@ -35,6 +35,7 @@ public class AmountDao extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select min(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
         cursor.moveToFirst();
         long timestamp = cursor.getLong(0);
+        cursor.close();
         return new Date(timestamp);
     }
 
@@ -43,6 +44,7 @@ public class AmountDao extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select max(" + TIME + ") from " + TABLE_NAME + " where " + CATEGORY + "=?", new String[]{category});
         cursor.moveToFirst();
         long timestamp = cursor.getLong(0);
+        cursor.close();
         return new Date(timestamp);
     }
 
