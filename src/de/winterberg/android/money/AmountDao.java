@@ -138,4 +138,9 @@ public class AmountDao extends SQLiteOpenHelper {
         db.execSQL("drop table if exists " + TABLE_NAME);
         onCreate(db);
     }
+
+    public BigDecimal findSumDay(String category) {
+        // TODO
+        return new BigDecimal("0.0");
+    }
 }
