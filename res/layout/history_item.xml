@@ -10,16 +10,10 @@
               android:layout_marginRight="15dip"
               android:textSize="16sp" />
 
-    <TextView android:id="@+id/history_action"
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-              android:layout_toRightOf="@id/history_time"
-              android:textSize="16sp" />
-
     <TextView android:id="@+id/history_diff"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:layout_toRightOf="@id/history_action"
+              android:layout_toRightOf="@id/history_time"
               android:layout_marginRight="15dip"
               android:textSize="16sp" />
 

@@ -2,4 +2,6 @@
     <color name="keypad_background_dark">#ff303030</color>
     <color name="keypad_background_light">#ff808080</color>
     <color name="keypad_border">#60ffffff</color>
+    <color name="red">#ffff0000</color>
+    <color name="green">#ff267F00</color>
 </resources>

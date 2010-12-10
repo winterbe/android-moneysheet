@@ -89,7 +89,11 @@ public class AmountActivity extends Activity implements AmountDaoAware {
 
     private void doSave(String action) {
         try {
-            getAmountDao().save(category, input.toString(), action, amount);
+            String value = input.toString();
+            if (ACTION_MINUS.equals(action))
+                value = "-" + value;
+
+            getAmountDao().save(category, value, action, amount);
             Toast.makeText(this, "Amount saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "doSave() error", e);
