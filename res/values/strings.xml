@@ -21,10 +21,10 @@
     <string name="stats_current_amount_label">Total amount:</string>
     <string name="stats_from_label">First entry:</string>
     <string name="stats_to_label">Last entry:</string>
-    <string name="stats_sum_day_label">Sum / day:</string>
-    <string name="stats_sum_week_label">Sum / week:</string>
-    <string name="stats_sum_month_label">Sum / month:</string>
-    <string name="stats_sum_year_label">Sum / year:</string>
+    <string name="stats_sum_day_label">Sum (today):</string>
+    <string name="stats_sum_week_label">Sum (this week):</string>
+    <string name="stats_sum_month_label">Sum (this month):</string>
+    <string name="stats_sum_year_label">Sum (this year):</string>
     <string name="stats_average_day_label">Average / day:</string>
     <string name="stats_average_week_label">Average / week:</string>
     <string name="stats_average_month_label">Average / month:</string>
