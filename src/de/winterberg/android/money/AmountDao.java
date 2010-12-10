@@ -8,9 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static de.winterberg.android.money.Constants.*;
 
@@ -28,6 +26,45 @@ public class AmountDao extends SQLiteOpenHelper {
 
     public AmountDao(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public BigDecimal findSumDay(String category) {
+        Log.d(TAG, "findSumDay: category=" + category);
+
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 1);
+        calendar.set(Calendar.MILLISECOND, 0);
+        long time1 = calendar.getTimeInMillis();
+
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 59);
+        long time2 = calendar.getTimeInMillis();
+
+        return findSum(category, time1, time2);
+    }
+
+    private BigDecimal findSum(String category, long fromTime, long toTime) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "select sum(" + VALUE + ") " +
+                "from " + TABLE_NAME + " " +
+                "where " + CATEGORY + " = ? and " + TIME + " between ? and ?";
+
+        Cursor cursor = db.rawQuery(sql, new String[]{category, String.valueOf(fromTime), String.valueOf(toTime)});
+
+        try {
+            cursor.moveToFirst();
+            String sum = cursor.getString(0);
+            if (sum == null)
+                return new BigDecimal("0");
+            return new BigDecimal(sum);
+        } finally {
+            cursor.close();
+        }
     }
 
     public Date findFirstDate(String category) {
@@ -137,10 +174,5 @@ public class AmountDao extends SQLiteOpenHelper {
         // TODO: migrate old data
         db.execSQL("drop table if exists " + TABLE_NAME);
         onCreate(db);
-    }
-
-    public BigDecimal findSumDay(String category) {
-        // TODO
-        return new BigDecimal("0.0");
     }
 }
