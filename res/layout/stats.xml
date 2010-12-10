@@ -60,7 +60,7 @@
     </TableRow>
 
     <!-- Average -->
-    <TableRow style="@style/FillWrap">
+<!--    <TableRow style="@style/FillWrap">
         <TextView style="@style/WrapBoth"
                   android:layout_marginRight="20dip"
                   android:text="@string/stats_average_day_label" />
@@ -87,6 +87,6 @@
                   android:text="@string/stats_average_year_label" />
         <TextView style="@style/WrapBoth"
                   android:id="@+id/stats_average_year" />
-    </TableRow>
+    </TableRow>-->
 
 </TableLayout>

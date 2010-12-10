@@ -28,6 +28,26 @@ public class AmountDao extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+//    public BigDecimal findSumWeek(String category) {
+//        Log.d(TAG, "findSumWeek: category=" + category);
+//
+//        GregorianCalendar calendar = new GregorianCalendar();
+//        calendar.set(Calendar.HOUR_OF_DAY, 0);
+//        calendar.set(Calendar.MINUTE, 0);
+//        calendar.set(Calendar.SECOND, 1);
+//        calendar.set(Calendar.MILLISECOND, 0);
+//        calendar.set(Calendar.DAY_OF_WEEK_IN_MONTH, 0);
+//        long time1 = calendar.getTimeInMillis();
+//
+//        calendar.set(Calendar.HOUR_OF_DAY, 23);
+//        calendar.set(Calendar.MINUTE, 59);
+//        calendar.set(Calendar.SECOND, 59);
+//        calendar.set(Calendar.MILLISECOND, 59);
+//        long time2 = calendar.getTimeInMillis();
+//
+//        return findSum(category, time1, time2);
+//    }
+
     public BigDecimal findSumDay(String category) {
         Log.d(TAG, "findSumDay: category=" + category);
 

@@ -26,12 +26,12 @@ public final class R {
         public static final int keypad=0x7f020005;
     }
     public static final class id {
-        public static final int about=0x7f090021;
-        public static final int add_category=0x7f09001f;
+        public static final int about=0x7f09001d;
+        public static final int add_category=0x7f09001b;
         public static final int amount_value=0x7f090000;
         public static final int category_item=0x7f090010;
         public static final int current_input_value=0x7f090001;
-        public static final int exit=0x7f090022;
+        public static final int exit=0x7f09001e;
         public static final int history_amount=0x7f090013;
         public static final int history_diff=0x7f090012;
         public static final int history_time=0x7f090011;
@@ -49,11 +49,7 @@ public final class R {
         public static final int keypad_minus=0x7f09000f;
         public static final int keypad_plus=0x7f09000e;
         public static final int keypad_separator=0x7f09000c;
-        public static final int settings=0x7f090020;
-        public static final int stats_average_day=0x7f09001b;
-        public static final int stats_average_month=0x7f09001d;
-        public static final int stats_average_week=0x7f09001c;
-        public static final int stats_average_year=0x7f09001e;
+        public static final int settings=0x7f09001c;
         public static final int stats_current_amount=0x7f090014;
         public static final int stats_from=0x7f090015;
         public static final int stats_sum_day=0x7f090017;
