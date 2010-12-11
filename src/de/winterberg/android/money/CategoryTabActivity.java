@@ -2,6 +2,7 @@ package de.winterberg.android.money;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
 
@@ -20,6 +21,8 @@ public class CategoryTabActivity extends TabActivity {
 
         setTitle(category);
 
+        Resources res = getResources();
+
         TabHost tabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent;
@@ -29,7 +32,9 @@ public class CategoryTabActivity extends TabActivity {
         intent = new Intent().setClass(this, AmountActivity.class);
         intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
 
-        spec = tabHost.newTabSpec("amount").setIndicator("Amount").setContent(intent);
+        spec = tabHost.newTabSpec("amount")
+                .setIndicator("Amount", res.getDrawable(R.drawable.ic_tab_amount))
+                .setContent(intent);
         tabHost.addTab(spec);
 
 
