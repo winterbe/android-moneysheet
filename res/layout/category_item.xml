@@ -4,5 +4,7 @@
           android:id="@+id/category_item"
           android:layout_height="wrap_content"
           android:layout_width="fill_parent"
-          android:padding="10dp"
-          android:textSize="30sp"/>
+          android:padding="0dip"
+          android:textSize="25sp"
+          android:drawableLeft="@drawable/ic_list_category"
+          android:drawablePadding="15dip" />

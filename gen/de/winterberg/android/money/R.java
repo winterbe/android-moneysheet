@@ -19,20 +19,21 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
-        public static final int ic_menu_add=0x7f020001;
-        public static final int ic_menu_close_clear_cancel=0x7f020002;
-        public static final int ic_menu_info_details=0x7f020003;
-        public static final int ic_menu_preferences=0x7f020004;
-        public static final int ic_tab_amount=0x7f020005;
-        public static final int ic_tab_amount_black=0x7f020006;
-        public static final int ic_tab_amount_white=0x7f020007;
-        public static final int ic_tab_history=0x7f020008;
-        public static final int ic_tab_history_black=0x7f020009;
-        public static final int ic_tab_history_white=0x7f02000a;
-        public static final int ic_tab_stats=0x7f02000b;
-        public static final int ic_tab_stats_black=0x7f02000c;
-        public static final int ic_tab_stats_white=0x7f02000d;
-        public static final int keypad=0x7f02000e;
+        public static final int ic_list_category=0x7f020001;
+        public static final int ic_menu_add=0x7f020002;
+        public static final int ic_menu_close_clear_cancel=0x7f020003;
+        public static final int ic_menu_info_details=0x7f020004;
+        public static final int ic_menu_preferences=0x7f020005;
+        public static final int ic_tab_amount=0x7f020006;
+        public static final int ic_tab_amount_black=0x7f020007;
+        public static final int ic_tab_amount_white=0x7f020008;
+        public static final int ic_tab_history=0x7f020009;
+        public static final int ic_tab_history_black=0x7f02000a;
+        public static final int ic_tab_history_white=0x7f02000b;
+        public static final int ic_tab_stats=0x7f02000c;
+        public static final int ic_tab_stats_black=0x7f02000d;
+        public static final int ic_tab_stats_white=0x7f02000e;
+        public static final int keypad=0x7f02000f;
     }
     public static final class id {
         public static final int about=0x7f09001d;
