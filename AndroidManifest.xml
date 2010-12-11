@@ -3,7 +3,7 @@
           package="de.winterberg.android.money"
           android:versionCode="1"
           android:versionName="1.0">
-    <application android:label="Hands-on money"
+    <application android:label="Money"
                  android:icon="@drawable/ic_launcher"
                  android:name="MoneyApplication"
                  android:debuggable="true"
