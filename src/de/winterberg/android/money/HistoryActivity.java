@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import static de.winterberg.android.money.Constants.*;
@@ -67,11 +69,12 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                         return true;
                     case 3:
                         String diff = cursor.getString(columnIndex);
-                        textView.setText("(" + diff + ")");
+                        BigDecimal value = new BigDecimal(diff);
+                        textView.setText("[" + getDecimalFormat().format(value) + "]");
                         return true;
                     case 4:
                         String amount = cursor.getString(columnIndex);
-                        textView.setText(amount + " €");
+                        textView.setText(getDecimalFormat().format(new BigDecimal(amount)) + " €");
                         return true;
                     default:
                         return false;
@@ -122,5 +125,9 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
     public AmountDao getAmountDao() {
         MoneyApplication application = (MoneyApplication) getApplication();
         return application.getAmountDao();
+    }
+
+    private DecimalFormat getDecimalFormat() {
+        return ((MoneyApplication) getApplication()).getDecimalFormat();
     }
 }

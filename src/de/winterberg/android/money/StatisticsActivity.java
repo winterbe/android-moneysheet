@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
@@ -41,7 +42,7 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
     private void showSumDay() {
         BigDecimal sum = getAmountDao().findSumDay(category);
         TextView view = (TextView) findViewById(R.id.stats_sum_day);
-        view.setText(sum.toString() + " €");
+        view.setText(getDecimalFormat().format(sum) + " €");
     }
 
     private void showFirstDate() {
@@ -59,10 +60,14 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
     private void showTotalAmount() {
         BigDecimal totalAmount = getAmountDao().loadAmount(category);
         TextView view = (TextView) findViewById(R.id.stats_current_amount);
-        view.setText(totalAmount.toString() + " €");
+        view.setText(getDecimalFormat().format(totalAmount) + " €");
     }
 
     public AmountDao getAmountDao() {
         return application.getAmountDao();
+    }
+
+    private DecimalFormat getDecimalFormat() {
+        return application.getDecimalFormat();
     }
 }

@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.text.ParseException;
 
 /**
  * Activity for editing details on a category.
@@ -162,10 +161,6 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     }
 
     private DecimalFormat getDecimalFormat() {
-        return getMoneyApplication().getDecimalFormat();
-    }
-
-    private MoneyApplication getMoneyApplication() {
-        return (MoneyApplication) getApplication();
+        return ((MoneyApplication)getApplication()).getDecimalFormat();
     }
 }
