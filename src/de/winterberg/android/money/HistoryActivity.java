@@ -1,9 +1,13 @@
 package de.winterberg.android.money;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -17,6 +21,8 @@ import static de.winterberg.android.money.Constants.*;
  * @author Benjamin Winterberg
  */
 public class HistoryActivity extends ListActivity implements AmountDaoAware {
+    private static final String TAG = "History";
+
     private MoneyApplication application;
 
     private String category;
@@ -24,6 +30,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history);
+        initClickListeners();
         category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
         application = (MoneyApplication) getApplication();
     }
@@ -73,6 +80,39 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         });
 
         setListAdapter(simpleCursorAdapter);
+    }
+
+    private void initClickListeners() {
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long rowId) {
+                openRemoveHistoryEntryDialog(position);
+                return true;
+            }
+        });
+    }
+
+    private void openRemoveHistoryEntryDialog(final int position) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        doRemove(position);
+                        break;
+                }
+            }
+        };
+
+        new AlertDialog.Builder(HistoryActivity.this)
+                .setTitle(R.string.remove_history_entry_label)
+                .setMessage(R.string.remove_history_entry_confirm)
+                .setPositiveButton(R.string.ok, dialogClickListener)
+                .setNegativeButton(R.string.cancel, dialogClickListener)
+                .show();
+    }
+
+    private void doRemove(int position) {
+        Log.d(TAG, "removing history entry at position " + position);
+        
     }
 
     public AmountDao getAmountDao() {
