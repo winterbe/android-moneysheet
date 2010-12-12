@@ -85,18 +85,19 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
     private void initClickListeners() {
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long rowId) {
-                openRemoveHistoryEntryDialog(position);
+                Log.d(TAG, "history entry long-clicked: position=" + position + ", rowId=" + rowId);
+                openRemoveHistoryEntryDialog(rowId);
                 return true;
             }
         });
     }
 
-    private void openRemoveHistoryEntryDialog(final int position) {
+    private void openRemoveHistoryEntryDialog(final long rowId) {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
-                        doRemove(position);
+                        doRemove(rowId);
                         break;
                 }
             }
@@ -110,9 +111,10 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                 .show();
     }
 
-    private void doRemove(int position) {
-        Log.d(TAG, "removing history entry at position " + position);
-        
+    private void doRemove(long rowId) {
+        Log.d(TAG, "removing history entry with rowId=" + rowId);
+        getAmountDao().delete(rowId);
+        refreshData();
     }
 
     public AmountDao getAmountDao() {

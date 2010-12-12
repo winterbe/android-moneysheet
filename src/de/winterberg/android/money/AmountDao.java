@@ -162,6 +162,10 @@ public class AmountDao extends SQLiteOpenHelper {
         }
     }
 
+    public void delete(long rowId) {
+        getWritableDatabase().delete(TABLE_NAME, _ID + "=?", new String[] {String.valueOf(rowId)});
+    }
+
     public void save(String category, String value, String action, BigDecimal amount) {
         ContentValues values = createValues(category, value, action, amount);
         SQLiteDatabase db = getWritableDatabase();
