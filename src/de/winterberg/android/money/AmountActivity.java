@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.ParseException;
 
 /**
  * Activity for editing details on a category.
@@ -38,8 +40,7 @@ public class AmountActivity extends Activity implements AmountDaoAware {
         loadLatestAmount();
         input = new StringBuilder();
         inputView = (TextView) findViewById(R.id.current_input_value);
-        TextView amountView = (TextView) findViewById(R.id.amount_value);
-        amountView.setText(amount.toString());
+        refreshView();
     }
 
     private void loadLatestAmount() {
@@ -55,8 +56,15 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     }
 
     private void changeInputValue(CharSequence num) {
+        if (!canAppend(num))
+            return;
         input.append(num);
         inputView.setText(input.toString());
+    }
+
+    private boolean canAppend(CharSequence num) {
+        String testValue = input.toString() + num;
+        return isInputValid(testValue);
     }
 
     public void onActionButtonClick(View view) {
@@ -127,7 +135,7 @@ public class AmountActivity extends Activity implements AmountDaoAware {
 
     private void refreshView() {
         TextView amountValue = (TextView) findViewById(R.id.amount_value);
-        amountValue.setText(amount.toString());
+        amountValue.setText(getDecimalFormat().format(amount));
     }
 
     private void clearInput() {
@@ -136,8 +144,12 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     }
 
     private boolean isInputValid() {
+        return isInputValid(input.toString());
+    }
+
+    private boolean isInputValid(String input) {
         try {
-            new BigDecimal(input.toString());
+            new BigDecimal(input);
         } catch (NumberFormatException e) {
             return false;
         }
@@ -147,5 +159,13 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     public AmountDao getAmountDao() {
         MoneyApplication application = (MoneyApplication) getApplication();
         return application.getAmountDao();
+    }
+
+    private DecimalFormat getDecimalFormat() {
+        return getMoneyApplication().getDecimalFormat();
+    }
+
+    private MoneyApplication getMoneyApplication() {
+        return (MoneyApplication) getApplication();
     }
 }
