@@ -86,7 +86,9 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long rowId) {
                 Log.d(TAG, "history entry long-clicked: position=" + position + ", rowId=" + rowId);
-                openRemoveHistoryEntryDialog(rowId);
+                if (getListView().getCount() > 1) {
+                    openRemoveHistoryEntryDialog(rowId);
+                }
                 return true;
             }
         });
