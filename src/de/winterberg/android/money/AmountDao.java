@@ -12,6 +12,7 @@ import java.util.*;
 
 import static de.winterberg.android.money.Constants.*;
 import static de.winterberg.android.money.DateUtils.*;
+import static de.winterberg.android.money.DateUtils.rollDays;
 
 /**
  * Data access to read and store amount data to SQLite.
@@ -38,7 +39,17 @@ public class AmountDao extends SQLiteOpenHelper {
         Log.d(TAG, "setupTestCategory()");
         removeAll(TEST_CATEGORY);
         save(TEST_CATEGORY, "0", "+", new BigDecimal(0.0), newDate(2010, 1, 1).getTime());
-        testSumDay();
+        testSumWeek();
+    }
+
+    private void testSumWeek() {
+        int amount = 0;
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), yesterday(23, 59, 59).getTime());
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(0, 0, 0).getTime());
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(13, 0, 0).getTime());
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(23, 59, 59).getTime());
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), tomorrow(0, 0, 0).getTime());
+        Log.d(TAG, "TEST: sumWeek should be 4");
     }
 
     private void testSumDay() {
@@ -51,33 +62,15 @@ public class AmountDao extends SQLiteOpenHelper {
         Log.d(TAG, "TEST: sumDay should be 3");
     }
 
-//    public BigDecimal findSumWeek(String category) {
-//        Log.d(TAG, "findSumWeek: category=" + category);
-//
-//        GregorianCalendar calendar = new GregorianCalendar();
-//        calendar.set(Calendar.HOUR_OF_DAY, 0);
-//        calendar.set(Calendar.MINUTE, 0);
-//        calendar.set(Calendar.SECOND, 1);
-//        calendar.set(Calendar.MILLISECOND, 0);
-//        calendar.set(Calendar.DAY_OF_WEEK_IN_MONTH, 0);
-//        long time1 = calendar.getTimeInMillis();
-//
-//        calendar.set(Calendar.HOUR_OF_DAY, 23);
-//        calendar.set(Calendar.MINUTE, 59);
-//        calendar.set(Calendar.SECOND, 59);
-//        calendar.set(Calendar.MILLISECOND, 59);
-//        long time2 = calendar.getTimeInMillis();
-//
-//        return findSum(category, time1, time2);
-//    }
+    public BigDecimal findSumWeek(String category) {
+        Log.d(TAG, "findSumWeek: category=" + category);
+        // TODO: calc monday to sunday instead of last 7 days
+        return findSum(category, rollDays(today(), -7).getTime(), today(23, 59, 59).getTime());
+    }
 
     public BigDecimal findSumDay(String category) {
         Log.d(TAG, "findSumDay: category=" + category);
-
-        long time1 = today(0, 0, 0).getTime();
-        long time2 = today(23, 59, 59).getTime();
-
-        return findSum(category, time1, time2);
+        return findSum(category, today().getTime(), today(23, 59, 59).getTime());
     }
 
     private BigDecimal findSum(String category, long fromTime, long toTime) {

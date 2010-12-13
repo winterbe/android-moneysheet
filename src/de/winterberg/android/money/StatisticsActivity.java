@@ -37,6 +37,13 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
         showFirstDate();
         showLastDate();
         showSumDay();
+        showSumWeek();
+    }
+
+    private void showSumWeek() {
+        BigDecimal sum = getAmountDao().findSumWeek(category);
+        TextView view = (TextView) findViewById(R.id.stats_sum_week);
+        view.setText(getDecimalFormat().format(sum) + " €");
     }
 
     private void showSumDay() {
