@@ -28,7 +28,7 @@ public class AmountDao extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TEST_CATEGORY = "Test";
-    private static final boolean TEST_MODE = true;
+    private static final boolean TEST_MODE = false;
 
 
     public AmountDao(Context context) {
