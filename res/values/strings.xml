@@ -26,7 +26,7 @@
     <string name="stats_sum_today_label">Today:</string>
     <string name="stats_sum_yesterday_label">Yesterday:</string>
     <string name="stats_sum_week_label">This week:</string>
-    <string name="stats_sum_month_label">This Month:</string>
-    <string name="stats_sum_year_label">This Year:</string>
+    <string name="stats_sum_month_label">This month:</string>
+    <string name="stats_sum_year_label">This year:</string>
     <string name="stats_average_label">Average:</string>
 </resources>
