@@ -28,7 +28,7 @@ public class AmountDao extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TEST_CATEGORY = "Test";
-    private static final boolean TEST_MODE = false;
+    private static final boolean TEST_MODE = true;
 
 
     public AmountDao(Context context) {
@@ -40,16 +40,15 @@ public class AmountDao extends SQLiteOpenHelper {
     public void setupTestCategory() {
         Log.d(TAG, "setupTestCategory()");
         removeAll(TEST_CATEGORY);
-        save(TEST_CATEGORY, "0", "+", new BigDecimal(0.0), newDate(2010, 1, 1).getTime());
+        save(TEST_CATEGORY, new BigDecimal(0.0), newDate(2010, 1, 1).getTime());
         setTestData();
     }
 
     private void setTestData() {
-        int amount = 0;
-        testSave(++amount, setDate(today(), 0, 1));
-        testSave(++amount, setDay(today(), 1));
-        testSave(++amount, setWeekDay(today(), Calendar.MONDAY));
-        testSave(++amount, today());
+        testSave(setDate(today(), 0, 1));
+        testSave(setDay(today(), 1));
+        testSave(setWeekDay(today(), Calendar.MONDAY));
+        testSave(today());
 
         // SumToday = 1
         // SumWeek = 2
@@ -57,8 +56,8 @@ public class AmountDao extends SQLiteOpenHelper {
         // SumYear = 4
     }
 
-    private void testSave(int amount, Date date) {
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(amount), date.getTime());
+    private void testSave(Date date) {
+        save(TEST_CATEGORY, new BigDecimal(1), date.getTime());
     }
 
     public BigDecimal findSumYear(String category) {
@@ -160,7 +159,7 @@ public class AmountDao extends SQLiteOpenHelper {
     public Cursor findAll(String category) {
         Log.d(TAG, "findAll()");
         SQLiteDatabase db = getReadableDatabase();
-        return db.query(TABLE_NAME, new String[]{_ID, TIME, ACTION, VALUE, AMOUNT}, CATEGORY + "=?", new String[]{category},
+        return db.query(TABLE_NAME, new String[]{_ID, TIME, VALUE}, CATEGORY + "=?", new String[]{category},
                 null, null, TIME + " desc");
     }
 
@@ -186,24 +185,29 @@ public class AmountDao extends SQLiteOpenHelper {
         }
     }
 
-    public BigDecimal loadAmount(String category) {
-        Log.d(TAG, "loadAmount()");
+    public BigDecimal loadTotal(String category) {
+        Log.d(TAG, "loadTotal()");
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(
-                TABLE_NAME,
-                new String[]{AMOUNT, "max(" + TIME + ")"},
-                CATEGORY + "=?",
-                new String[]{category},
-                CATEGORY,
-                null,
-                TIME + " desc");
+        Cursor cursor = db.rawQuery(
+                "select sum(" + VALUE + ") " +
+                "from " + TABLE_NAME + " " +
+                "where " + CATEGORY + "=?", 
+                new String[]{category});
+//        Cursor cursor = db.query(
+//                TABLE_NAME,
+//                new String[]{VALUE, "max(" + TIME + ")"},
+//                CATEGORY + "=?",
+//                new String[]{category},
+//                CATEGORY,
+//                null,
+//                TIME + " desc");
         try {
             if (cursor.moveToNext()) {
                 String amount = cursor.getString(0);
-                Log.d(TAG, "loadAmount: " + amount);
+                Log.d(TAG, "loadTotal: " + amount);
                 return new BigDecimal(amount);
             }
-            Log.d(TAG, "loadAmount: no data found");
+            Log.d(TAG, "loadTotal: no data found");
             return new BigDecimal(0.0);
         } finally {
             cursor.close();
@@ -215,25 +219,23 @@ public class AmountDao extends SQLiteOpenHelper {
         getWritableDatabase().delete(TABLE_NAME, _ID + "=?", new String[]{String.valueOf(rowId)});
     }
 
-    public void save(String category, String value, String action, BigDecimal amount) {
+    public void save(String category, BigDecimal amount) {
         Log.d(TAG, "save()");
         long timeInMillis = System.currentTimeMillis();
-        save(category, value, action, amount, timeInMillis);
+        save(category, amount, timeInMillis);
     }
 
-    private void save(String category, String value, String action, BigDecimal amount, long timeInMillis) {
-        ContentValues values = createValues(category, value, action, amount, timeInMillis);
+    private void save(String category, BigDecimal amount, long timeInMillis) {
+        ContentValues values = createValues(category, amount, timeInMillis);
         SQLiteDatabase db = getWritableDatabase();
         db.insertOrThrow(TABLE_NAME, null, values);
     }
 
-    private ContentValues createValues(String category, String value, String action, BigDecimal amount, long timeInMillis) {
+    private ContentValues createValues(String category, BigDecimal amount, long timeInMillis) {
         ContentValues values = new ContentValues();
         values.put(TIME, timeInMillis);
         values.put(CATEGORY, category);
-        values.put(ACTION, action);
-        values.put(VALUE, value);
-        values.put(AMOUNT, amount.toString());
+        values.put(VALUE, amount.toString());
         return values;
     }
 
@@ -243,9 +245,7 @@ public class AmountDao extends SQLiteOpenHelper {
                 _ID + " integer primary key autoincrement, " +
                 TIME + " long not null, " +
                 CATEGORY + " string not null, " +
-                VALUE + " string, " +
-                ACTION + " string not null, " +
-                AMOUNT + " string not null)");
+                VALUE + " string not null)");
     }
 
     @Override

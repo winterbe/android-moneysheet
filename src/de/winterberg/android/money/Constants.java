@@ -12,7 +12,5 @@ public interface Constants extends BaseColumns {
 
     public static final String TIME = "time";
     public static final String CATEGORY = "category";
-    public static final String AMOUNT = "amount";
-    public static final String ACTION = "action";
     public static final String VALUE = "value";
 }

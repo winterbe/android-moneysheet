@@ -49,12 +49,10 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this, R.layout.history_item, cursor,
                 new String[]{
                         TIME,
-                        VALUE,
-                        AMOUNT
+                        VALUE
                 },
                 new int[]{
                         R.id.history_time,
-                        R.id.history_diff,
                         R.id.history_amount
                 });
 
@@ -67,12 +65,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                         String formattedString = application.getDateFormat().format(new Date(timeInMillis));
                         textView.setText(formattedString);
                         return true;
-                    case 3:
-                        String diff = cursor.getString(columnIndex);
-                        BigDecimal value = new BigDecimal(diff);
-                        textView.setText("[" + getDecimalFormat().format(value) + "]");
-                        return true;
-                    case 4:
+                    case 2:
                         String amount = cursor.getString(columnIndex);
                         textView.setText(getDecimalFormat().format(new BigDecimal(amount)) + " €");
                         return true;

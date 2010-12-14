@@ -93,7 +93,7 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
     }
 
     private void showTotalAmount() {
-        BigDecimal totalAmount = getAmountDao().loadAmount(category);
+        BigDecimal totalAmount = getAmountDao().loadTotal(category);
         TextView view = (TextView) findViewById(R.id.stats_current_amount);
         view.setText(getDecimalFormat().format(totalAmount) + " €");
     }

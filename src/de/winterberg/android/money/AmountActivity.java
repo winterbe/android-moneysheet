@@ -24,10 +24,10 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     private static final String ACTION_MINUS = "-";
     private static final String ACTION_CLEAR = "C";
 
+    private String category;
+
     private TextView inputView;
 
-    private String category;
-    private BigDecimal amount;
     private StringBuilder input;
 
 
@@ -36,14 +36,14 @@ public class AmountActivity extends Activity implements AmountDaoAware {
         setContentView(R.layout.amount);
         category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
         setTitle(category);
-        loadLatestAmount();
+        loadTotalAmount();
         input = new StringBuilder();
         inputView = (TextView) findViewById(R.id.current_input_value);
         refreshView();
     }
 
-    private void loadLatestAmount() {
-        amount = getAmountDao().loadAmount(category);
+    private BigDecimal loadTotalAmount() {
+        return getAmountDao().loadTotal(category);
     }
 
     public void onNumButtonClick(View view) {
@@ -94,13 +94,9 @@ public class AmountActivity extends Activity implements AmountDaoAware {
         }
     }
 
-    private void doSave(String action) {
+    private void doSave(BigDecimal value) {
         try {
-            String value = input.toString();
-            if (ACTION_MINUS.equals(action))
-                value = "-" + value;
-
-            getAmountDao().save(category, value, action, amount);
+            getAmountDao().save(category, value);
             Toast.makeText(this, "Amount saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "doSave() error", e);
@@ -117,22 +113,19 @@ public class AmountActivity extends Activity implements AmountDaoAware {
     }
 
     private void plus() {
-        BigDecimal inputNumber = new BigDecimal(input.toString());
-        amount = amount.add(inputNumber);
-        doSave(ACTION_PLUS);
+        doSave(new BigDecimal(input.toString()));
         clearInput();
         refreshView();
     }
 
     private void minus() {
-        BigDecimal inputNumber = new BigDecimal(input.toString());
-        amount = amount.subtract(inputNumber);
-        doSave(ACTION_MINUS);
+        doSave(new BigDecimal("-" + input.toString()));
         clearInput();
         refreshView();
     }
 
     private void refreshView() {
+        BigDecimal amount = loadTotalAmount();
         TextView amountValue = (TextView) findViewById(R.id.amount_value);
         amountValue.setText(getDecimalFormat().format(amount));
     }
