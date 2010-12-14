@@ -8,7 +8,8 @@
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:layout_marginRight="15dip"
-              android:textSize="20sp" />
+              android:textSize="15sp"
+              android:layout_alignParentBottom="true" />
 
     <TextView android:id="@+id/history_amount"
               android:layout_height="wrap_content"

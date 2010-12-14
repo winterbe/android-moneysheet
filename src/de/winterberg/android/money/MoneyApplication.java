@@ -22,8 +22,8 @@ public class MoneyApplication extends Application implements AmountDaoAware {
     @Override
     public void onCreate() {
         amountDao = new AmountDao(this);
-        dateFormat = new SimpleDateFormat("dd.MM.yyyy - HH:mm");
-        decimalFormat = new DecimalFormat("####0.00");
+        dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        decimalFormat = new DecimalFormat("#,###,##0.00");
     }
 
     public AmountDao getAmountDao() {
