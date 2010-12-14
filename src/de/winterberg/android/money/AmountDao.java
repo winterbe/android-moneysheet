@@ -8,11 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import static de.winterberg.android.money.Constants.*;
 import static de.winterberg.android.money.DateUtils.*;
-import static de.winterberg.android.money.DateUtils.rollDays;
 
 /**
  * Data access to read and store amount data to SQLite.
@@ -39,38 +41,49 @@ public class AmountDao extends SQLiteOpenHelper {
         Log.d(TAG, "setupTestCategory()");
         removeAll(TEST_CATEGORY);
         save(TEST_CATEGORY, "0", "+", new BigDecimal(0.0), newDate(2010, 1, 1).getTime());
-        testSumWeek();
+        setTestData();
     }
 
-    private void testSumWeek() {
+    private void setTestData() {
         int amount = 0;
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), yesterday(23, 59, 59).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(0, 0, 0).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(13, 0, 0).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(23, 59, 59).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), tomorrow(0, 0, 0).getTime());
-        Log.d(TAG, "TEST: sumWeek should be 4");
+        testSave(++amount, setDate(today(), 0, 1));
+        testSave(++amount, setDay(today(), 1));
+        testSave(++amount, setWeekDay(today(), Calendar.MONDAY));
+        testSave(++amount, today());
+
+        // SumToday = 1
+        // SumWeek = 2
+        // SumMonth = 3
+        // SumYear = 4
     }
 
-    private void testSumDay() {
-        int amount = 0;
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), yesterday(23, 59, 59).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(0, 0, 0).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(13, 0, 0).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), today(23, 59, 59).getTime());
-        save(TEST_CATEGORY, "1", "+", new BigDecimal(++amount), tomorrow(0, 0, 0).getTime());
-        Log.d(TAG, "TEST: sumDay should be 3");
+    private void testSave(int amount, Date date) {
+        save(TEST_CATEGORY, "1", "+", new BigDecimal(amount), date.getTime());
+    }
+
+    public BigDecimal findSumYear(String category) {
+        Log.d(TAG, "findSumYear: category=" + category);
+        return findSum(category, setDate(today(), 0, 1).getTime(), now().getTime());
+    }
+
+    public BigDecimal findSumMonth(String category) {
+        Log.d(TAG, "findSumMonth: category=" + category);
+        return findSum(category, setDay(today(), 1).getTime(), now().getTime());
     }
 
     public BigDecimal findSumWeek(String category) {
         Log.d(TAG, "findSumWeek: category=" + category);
-        // TODO: calc monday to sunday instead of last 7 days
-        return findSum(category, rollDays(today(), -7).getTime(), today(23, 59, 59).getTime());
+        return findSum(category, setWeekDay(today(), Calendar.MONDAY).getTime(), now().getTime());
     }
 
-    public BigDecimal findSumDay(String category) {
-        Log.d(TAG, "findSumDay: category=" + category);
-        return findSum(category, today().getTime(), today(23, 59, 59).getTime());
+    public BigDecimal findSumToday(String category) {
+        Log.d(TAG, "findSumToday: category=" + category);
+        return findSum(category, today().getTime(), now().getTime());
+    }
+
+    public BigDecimal findSumYesterday(String category) {
+        Log.d(TAG, "findSumToday: category=" + category);
+        return findSum(category, yesterday().getTime(), yesterday(23, 59, 59).getTime());
     }
 
     private BigDecimal findSum(String category, long fromTime, long toTime) {
@@ -81,6 +94,31 @@ public class AmountDao extends SQLiteOpenHelper {
                 "where " + CATEGORY + " = ? and " + TIME + " between ? and ?";
 
         Cursor cursor = db.rawQuery(sql, new String[]{category, String.valueOf(fromTime), String.valueOf(toTime)});
+
+        try {
+            cursor.moveToFirst();
+            String sum = cursor.getString(0);
+            if (sum == null)
+                return new BigDecimal("0");
+            return new BigDecimal(sum);
+        } finally {
+            cursor.close();
+        }
+    }
+
+    public BigDecimal findAverage(String category) {
+        Log.d(TAG, "findAverage: category=" + category);
+        return findAvg(category);
+    }
+
+    private BigDecimal findAvg(String category) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String sql = "select avg(" + VALUE + ") " +
+                "from " + TABLE_NAME + " " +
+                "where " + CATEGORY + " = ? and " + VALUE + " != 0";
+
+        Cursor cursor = db.rawQuery(sql, new String[]{category});
 
         try {
             cursor.moveToFirst();
@@ -174,7 +212,7 @@ public class AmountDao extends SQLiteOpenHelper {
 
     public void delete(long rowId) {
         Log.d(TAG, "delete()");
-        getWritableDatabase().delete(TABLE_NAME, _ID + "=?", new String[] {String.valueOf(rowId)});
+        getWritableDatabase().delete(TABLE_NAME, _ID + "=?", new String[]{String.valueOf(rowId)});
     }
 
     public void save(String category, String value, String action, BigDecimal amount) {

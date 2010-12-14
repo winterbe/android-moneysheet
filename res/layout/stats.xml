@@ -2,16 +2,6 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
              style="@style/FillBoth">
 
-    <TableRow style="@style/FillWrap"
-              android:layout_marginBottom="10dip">
-        <TextView style="@style/WrapBoth"
-                  android:layout_marginRight="20dip"
-                  android:text="@string/stats_current_amount_label" />
-        <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_current_amount" />
-    </TableRow>
-
-
     <TableRow style="@style/FillWrap">
         <TextView style="@style/WrapBoth"
                   android:layout_marginRight="20dip"
@@ -28,13 +18,30 @@
                   android:id="@+id/stats_to" />
     </TableRow>
 
+    <!-- Total -->
+    <TableRow style="@style/FillWrap"
+              android:layout_marginBottom="10dip">
+        <TextView style="@style/WrapBoth"
+                  android:layout_marginRight="20dip"
+                  android:text="@string/stats_current_amount_label" />
+        <TextView style="@style/WrapBoth"
+                  android:id="@+id/stats_current_amount" />
+    </TableRow>
+
     <!-- Sum -->
     <TableRow style="@style/FillWrap">
         <TextView style="@style/WrapBoth"
                   android:layout_marginRight="20dip"
-                  android:text="@string/stats_sum_day_label" />
+                  android:text="@string/stats_sum_today_label" />
         <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_sum_day" />
+                  android:id="@+id/stats_sum_today" />
+    </TableRow>
+    <TableRow style="@style/FillWrap">
+        <TextView style="@style/WrapBoth"
+                  android:layout_marginRight="20dip"
+                  android:text="@string/stats_sum_yesterday_label" />
+        <TextView style="@style/WrapBoth"
+                  android:id="@+id/stats_sum_yesterday" />
     </TableRow>
     <TableRow style="@style/FillWrap">
         <TextView style="@style/WrapBoth"
@@ -60,33 +67,13 @@
     </TableRow>
 
     <!-- Average -->
-<!--    <TableRow style="@style/FillWrap">
+    <TableRow style="@style/FillWrap"
+              android:layout_marginBottom="10dip">
         <TextView style="@style/WrapBoth"
                   android:layout_marginRight="20dip"
-                  android:text="@string/stats_average_day_label" />
+                  android:text="@string/stats_average_label" />
         <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_average_day" />
+                  android:id="@+id/stats_average" />
     </TableRow>
-    <TableRow style="@style/FillWrap">
-        <TextView style="@style/WrapBoth"
-                  android:layout_marginRight="20dip"
-                  android:text="@string/stats_average_week_label" />
-        <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_average_week" />
-    </TableRow>
-    <TableRow style="@style/FillWrap">
-        <TextView style="@style/WrapBoth"
-                  android:layout_marginRight="20dip"
-                  android:text="@string/stats_average_month_label" />
-        <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_average_month" />
-    </TableRow>
-    <TableRow style="@style/FillWrap">
-        <TextView style="@style/WrapBoth"
-                  android:layout_marginRight="20dip"
-                  android:text="@string/stats_average_year_label" />
-        <TextView style="@style/WrapBoth"
-                  android:id="@+id/stats_average_year" />
-    </TableRow>-->
 
 </TableLayout>

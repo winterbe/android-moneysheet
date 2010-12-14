@@ -36,12 +36,12 @@ public final class R {
         public static final int keypad=0x7f02000f;
     }
     public static final class id {
-        public static final int about=0x7f09001c;
-        public static final int add_category=0x7f09001b;
+        public static final int about=0x7f09001e;
+        public static final int add_category=0x7f09001d;
         public static final int amount_value=0x7f090000;
         public static final int category_item=0x7f090010;
         public static final int current_input_value=0x7f090001;
-        public static final int exit=0x7f09001d;
+        public static final int exit=0x7f09001f;
         public static final int history_amount=0x7f090013;
         public static final int history_diff=0x7f090012;
         public static final int history_time=0x7f090011;
@@ -59,13 +59,15 @@ public final class R {
         public static final int keypad_minus=0x7f09000f;
         public static final int keypad_plus=0x7f09000e;
         public static final int keypad_separator=0x7f09000c;
-        public static final int stats_current_amount=0x7f090014;
-        public static final int stats_from=0x7f090015;
-        public static final int stats_sum_day=0x7f090017;
-        public static final int stats_sum_month=0x7f090019;
-        public static final int stats_sum_week=0x7f090018;
-        public static final int stats_sum_year=0x7f09001a;
-        public static final int stats_to=0x7f090016;
+        public static final int stats_average=0x7f09001c;
+        public static final int stats_current_amount=0x7f090016;
+        public static final int stats_from=0x7f090014;
+        public static final int stats_sum_month=0x7f09001a;
+        public static final int stats_sum_today=0x7f090017;
+        public static final int stats_sum_week=0x7f090019;
+        public static final int stats_sum_year=0x7f09001b;
+        public static final int stats_sum_yesterday=0x7f090018;
+        public static final int stats_to=0x7f090015;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -101,16 +103,14 @@ public final class R {
         public static final int restore_label=0x7f06000c;
         public static final int restore_summary=0x7f06000d;
         public static final int settings_label=0x7f060002;
-        public static final int stats_average_day_label=0x7f06001b;
-        public static final int stats_average_month_label=0x7f06001d;
-        public static final int stats_average_week_label=0x7f06001c;
-        public static final int stats_average_year_label=0x7f06001e;
+        public static final int stats_average_label=0x7f06001c;
         public static final int stats_current_amount_label=0x7f060014;
         public static final int stats_from_label=0x7f060015;
-        public static final int stats_sum_day_label=0x7f060017;
-        public static final int stats_sum_month_label=0x7f060019;
-        public static final int stats_sum_week_label=0x7f060018;
-        public static final int stats_sum_year_label=0x7f06001a;
+        public static final int stats_sum_month_label=0x7f06001a;
+        public static final int stats_sum_today_label=0x7f060017;
+        public static final int stats_sum_week_label=0x7f060019;
+        public static final int stats_sum_year_label=0x7f06001b;
+        public static final int stats_sum_yesterday_label=0x7f060018;
         public static final int stats_to_label=0x7f060016;
     }
     public static final class style {

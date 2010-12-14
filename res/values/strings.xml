@@ -20,15 +20,13 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="category_already_exists">Category already exists</string>
-    <string name="stats_current_amount_label">Total amount:</string>
+    <string name="stats_current_amount_label">Total:</string>
     <string name="stats_from_label">First entry:</string>
     <string name="stats_to_label">Last entry:</string>
-    <string name="stats_sum_day_label">Sum (today):</string>
-    <string name="stats_sum_week_label">Sum (this week):</string>
-    <string name="stats_sum_month_label">Sum (this month):</string>
-    <string name="stats_sum_year_label">Sum (this year):</string>
-    <string name="stats_average_day_label">Average / day:</string>
-    <string name="stats_average_week_label">Average / week:</string>
-    <string name="stats_average_month_label">Average / month:</string>
-    <string name="stats_average_year_label">Average / year:</string>
+    <string name="stats_sum_today_label">Today:</string>
+    <string name="stats_sum_yesterday_label">Yesterday:</string>
+    <string name="stats_sum_week_label">This week:</string>
+    <string name="stats_sum_month_label">This Month:</string>
+    <string name="stats_sum_year_label">This Year:</string>
+    <string name="stats_average_label">Average:</string>
 </resources>

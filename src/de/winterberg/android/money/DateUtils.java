@@ -52,6 +52,21 @@ public final class DateUtils {
         return cal.getTime();
     }
 
+    public static Date setDay(Date date, int day) {
+        return setDate(date, -1, day);
+    }
+
+    public static Date setWeekDay(Date date, int weekDay) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        cal.set(Calendar.DAY_OF_WEEK, weekDay);
+        return cal.getTime();
+    }
+
+    public static Date setMonth(Date date, int month) {
+        return setDate(date, month, -1);
+    }
+
     public static Date rollDays(Date date, int days) {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(date);

@@ -36,8 +36,30 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
         showTotalAmount();
         showFirstDate();
         showLastDate();
-        showSumDay();
+        showSumToday();
+        showSumYesterday();
         showSumWeek();
+        showSumMonth();
+        showSumYear();
+        showAverage();
+    }
+
+    private void showAverage() {
+        BigDecimal sum = getAmountDao().findAverage(category);
+        TextView view = (TextView) findViewById(R.id.stats_average);
+        view.setText(getDecimalFormat().format(sum) + " €");
+    }
+
+    private void showSumYear() {
+        BigDecimal sum = getAmountDao().findSumYear(category);
+        TextView view = (TextView) findViewById(R.id.stats_sum_year);
+        view.setText(getDecimalFormat().format(sum) + " €");
+    }
+
+    private void showSumMonth() {
+        BigDecimal sum = getAmountDao().findSumMonth(category);
+        TextView view = (TextView) findViewById(R.id.stats_sum_month);
+        view.setText(getDecimalFormat().format(sum) + " €");
     }
 
     private void showSumWeek() {
@@ -46,9 +68,15 @@ public class StatisticsActivity extends Activity implements AmountDaoAware {
         view.setText(getDecimalFormat().format(sum) + " €");
     }
 
-    private void showSumDay() {
-        BigDecimal sum = getAmountDao().findSumDay(category);
-        TextView view = (TextView) findViewById(R.id.stats_sum_day);
+    private void showSumToday() {
+        BigDecimal sum = getAmountDao().findSumToday(category);
+        TextView view = (TextView) findViewById(R.id.stats_sum_today);
+        view.setText(getDecimalFormat().format(sum) + " €");
+    }
+
+    private void showSumYesterday() {
+        BigDecimal sum = getAmountDao().findSumYesterday(category);
+        TextView view = (TextView) findViewById(R.id.stats_sum_yesterday);
         view.setText(getDecimalFormat().format(sum) + " €");
     }
 
