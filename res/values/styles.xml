@@ -49,4 +49,7 @@
     <style name="FillWrap" parent="Fill">
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="StatisticText" parent="WrapBoth">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

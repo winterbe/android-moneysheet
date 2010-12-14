@@ -36,14 +36,13 @@ public final class R {
         public static final int keypad=0x7f02000f;
     }
     public static final class id {
-        public static final int about=0x7f09001e;
-        public static final int add_category=0x7f09001d;
+        public static final int about=0x7f09001d;
+        public static final int add_category=0x7f09001c;
         public static final int amount_value=0x7f090000;
         public static final int category_item=0x7f090010;
         public static final int current_input_value=0x7f090001;
-        public static final int exit=0x7f09001f;
-        public static final int history_amount=0x7f090013;
-        public static final int history_diff=0x7f090012;
+        public static final int exit=0x7f09001e;
+        public static final int history_amount=0x7f090012;
         public static final int history_time=0x7f090011;
         public static final int keypad_0=0x7f09000b;
         public static final int keypad_1=0x7f090002;
@@ -59,15 +58,15 @@ public final class R {
         public static final int keypad_minus=0x7f09000f;
         public static final int keypad_plus=0x7f09000e;
         public static final int keypad_separator=0x7f09000c;
-        public static final int stats_average=0x7f09001c;
-        public static final int stats_current_amount=0x7f090016;
-        public static final int stats_from=0x7f090014;
-        public static final int stats_sum_month=0x7f09001a;
-        public static final int stats_sum_today=0x7f090017;
-        public static final int stats_sum_week=0x7f090019;
-        public static final int stats_sum_year=0x7f09001b;
-        public static final int stats_sum_yesterday=0x7f090018;
-        public static final int stats_to=0x7f090015;
+        public static final int stats_average=0x7f09001b;
+        public static final int stats_current_amount=0x7f090015;
+        public static final int stats_from=0x7f090013;
+        public static final int stats_sum_month=0x7f090019;
+        public static final int stats_sum_today=0x7f090016;
+        public static final int stats_sum_week=0x7f090018;
+        public static final int stats_sum_year=0x7f09001a;
+        public static final int stats_sum_yesterday=0x7f090017;
+        public static final int stats_to=0x7f090014;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -122,6 +121,7 @@ public final class R {
         public static final int KeyPadButton_Action=0x7f070002;
         public static final int KeyPadButton_Num=0x7f070001;
         public static final int KeyPadRow=0x7f070004;
+        public static final int StatisticText=0x7f07000b;
         public static final int Wrap=0x7f070005;
         public static final int WrapBoth=0x7f070007;
         public static final int WrapFill=0x7f070009;
