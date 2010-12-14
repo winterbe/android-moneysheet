@@ -42,6 +42,12 @@ public class AmountActivity extends Activity implements AmountDaoAware {
         refreshView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshView();
+    }
+
     private BigDecimal loadTotalAmount() {
         return getAmountDao().loadTotal(category);
     }
