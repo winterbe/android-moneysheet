@@ -193,14 +193,6 @@ public class AmountDao extends SQLiteOpenHelper {
                 "from " + TABLE_NAME + " " +
                 "where " + CATEGORY + "=?", 
                 new String[]{category});
-//        Cursor cursor = db.query(
-//                TABLE_NAME,
-//                new String[]{VALUE, "max(" + TIME + ")"},
-//                CATEGORY + "=?",
-//                new String[]{category},
-//                CATEGORY,
-//                null,
-//                TIME + " desc");
         try {
             if (cursor.moveToNext()) {
                 String amount = cursor.getString(0);
