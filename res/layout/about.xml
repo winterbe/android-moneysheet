@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:layout_height="fill_parent"
-          android:layout_width="fill_parent"
-          android:text="@string/about_text"
-          android:padding="15dip"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/FillWrap"
+              android:padding="15dip"
+              android:orientation="vertical">
+
+    <TextView style="@style/WrapBoth"
+              android:id="@+id/about_version"
+              android:layout_gravity="center"
+              android:layout_marginBottom="20dip" />
+
+    <Button style="@style/WrapBoth"
+            android:text="@string/about_button_website"
+            android:onClick="onWebsiteButtonClick"
+            android:layout_gravity="center" />
+
+</LinearLayout>
