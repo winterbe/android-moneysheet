@@ -1,4 +1,3 @@
 <resources>
     <string name="date_pattern">yyyy-MM-dd h:mm a</string>
-    <string name="number_pattern">#,###,##0.00</string>
 </resources>

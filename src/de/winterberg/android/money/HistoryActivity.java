@@ -67,7 +67,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                         return true;
                     case 2:
                         String amount = cursor.getString(columnIndex);
-                        textView.setText(getDecimalFormat().format(new BigDecimal(amount)) + " €");
+                        textView.setText(getDecimalFormat().format(new BigDecimal(amount)));
                         return true;
                     default:
                         return false;
