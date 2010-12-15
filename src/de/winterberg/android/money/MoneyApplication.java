@@ -2,6 +2,7 @@ package de.winterberg.android.money;
 
 import android.app.Application;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
@@ -14,7 +15,7 @@ public class MoneyApplication extends Application implements AmountDaoAware {
 
     private AmountDao amountDao;
 
-    private SimpleDateFormat dateFormat;
+    private DateFormat dateFormat;
 
     private DecimalFormat decimalFormat;
 
@@ -22,15 +23,19 @@ public class MoneyApplication extends Application implements AmountDaoAware {
     @Override
     public void onCreate() {
         amountDao = new AmountDao(this);
-        dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        decimalFormat = new DecimalFormat("#,###,##0.00");
+
+        String datePattern = getResources().getString(R.string.date_pattern);
+        String numberPattern = getResources().getString(R.string.number_pattern);
+
+        dateFormat = new SimpleDateFormat(datePattern);
+        decimalFormat = new DecimalFormat(numberPattern);
     }
 
     public AmountDao getAmountDao() {
         return amountDao;
     }
 
-    public SimpleDateFormat getDateFormat() {
+    public java.text.DateFormat getDateFormat() {
         return dateFormat;
     }
 

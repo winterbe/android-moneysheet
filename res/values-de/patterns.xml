@@ -1,0 +1,4 @@
+<resources>
+    <string name="date_pattern">dd.MM.yyyy HH:mm</string>
+    <string name="number_pattern">#,###,##0.00</string>
+</resources>
