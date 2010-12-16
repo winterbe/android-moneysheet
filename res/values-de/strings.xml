@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Money Sheet</string>
+    <string name="empty_categories">Keine Sheets gefunden</string>
+    <string name="settings_label">Einstellungen</string>
+    <string name="about_label">Infos</string>
+    <string name="add_category_label">Neues Sheet</string>
+    <string name="add_category_description">Bitte Namen für das Sheet eingeben!</string>
+    <string name="remove_category_label">Sheet löschen</string>
+    <string name="remove_category_confirm">Möchten Sie das Sheet wirklich löschen?</string>
+    <string name="remove_history_entry_label">Eintrag entfernen</string>
+    <string name="remove_history_entry_confirm">Möchten Sie den Eintrag wirklich löschen?</string>
+    <string name="exit_label">Beenden</string>
+    <string name="amount_label">Gesamt:</string>
+    <string name="category_label">Sheet</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="category_already_exists">Sheet existiert bereits</string>
+    <string name="stats_current_amount_label">Gesamt:</string>
+    <string name="stats_from_label">Erster Eintrag:</string>
+    <string name="stats_to_label">Letzter Eintrag:</string>
+    <string name="stats_sum_today_label">Heute:</string>
+    <string name="stats_sum_yesterday_label">Gestern:</string>
+    <string name="stats_sum_week_label">Diese Woche:</string>
+    <string name="stats_sum_month_label">Dieser Monat:</string>
+    <string name="stats_sum_year_label">Dieses Jahr:</string>
+    <string name="stats_average_label">Durchschnitt:</string>
+    <string name="about_button_website">Webseite besuchen</string>
+    <string name="tab_edit">Bearbeiten</string>
+    <string name="tab_history">Historie</string>
+    <string name="tab_stats">Statistik</string>
+</resources>

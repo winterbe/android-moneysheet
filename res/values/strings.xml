@@ -6,13 +6,11 @@
     <string name="about_label">About</string>
     <string name="add_category_label">Add sheet</string>
     <string name="add_category_description">Please insert name for new sheet!</string>
-    <string name="edit_category_label">Edit</string>
     <string name="remove_category_label">Remove sheet</string>
     <string name="remove_category_confirm">Do you really want to remove this sheet?</string>
     <string name="remove_history_entry_label">Remove history entry</string>
     <string name="remove_history_entry_confirm">Do you really want to remove this history entry?</string>
     <string name="exit_label">Exit</string>
-    <string name="about_text">Money Sheet for Android let\'s you keep track of your payments and outgoings on the run.\n\nYou can create custom categories of interest, e.g. supermarket or gas station.Then you\'re able to add or substract money to each category. Simply use the build-in history and statistics functions so you\'ll never forget what\'s going on with your money anymore.\n\nThis app is open source:\nhttps://github.com/winterbe/money\n\nEnjoy! :)</string>
     <string name="amount_label">Total:</string>
     <string name="category_label">Sheet</string>
     <string name="ok">OK</string>
