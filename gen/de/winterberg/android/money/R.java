@@ -112,6 +112,9 @@ public final class R {
         public static final int stats_sum_year_label=0x7f06001a;
         public static final int stats_sum_yesterday_label=0x7f060017;
         public static final int stats_to_label=0x7f060015;
+        public static final int tab_edit=0x7f06001d;
+        public static final int tab_history=0x7f06001e;
+        public static final int tab_stats=0x7f06001f;
     }
     public static final class style {
         public static final int Fill=0x7f070008;
@@ -123,12 +126,13 @@ public final class R {
         public static final int KeyPadButton=0x7f070002;
         public static final int KeyPadButton_Action=0x7f070004;
         public static final int KeyPadButton_Num=0x7f070003;
-        public static final int KeyPadRow=0x7f070006;
-        public static final int StatisticText=0x7f07000d;
+        public static final int StatisticText=0x7f070006;
         public static final int TabWidget=0x7f070001;
         /**  THEME 
          */
         public static final int Theme=0x7f070000;
+        /**  Fill/Wrap 
+         */
         public static final int Wrap=0x7f070007;
         public static final int WrapBoth=0x7f070009;
         public static final int WrapFill=0x7f07000b;

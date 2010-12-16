@@ -34,7 +34,7 @@
 
     <TableLayout style="@style/KeyPad">
 
-        <TableRow style="@style/KeyPadRow">
+        <TableRow style="@style/WrapBoth">
             <Button style="@style/KeyPadButton.Num"
                     android:text="1"
                     android:id="@+id/keypad_1" />
@@ -46,7 +46,7 @@
                     android:id="@+id/keypad_3" />
         </TableRow>
 
-        <TableRow style="@style/KeyPadRow">
+        <TableRow style="@style/WrapBoth">
             <Button style="@style/KeyPadButton.Num"
                     android:text="4"
                     android:id="@+id/keypad_4" />
@@ -58,7 +58,7 @@
                     android:id="@+id/keypad_6" />
         </TableRow>
 
-        <TableRow style="@style/KeyPadRow">
+        <TableRow style="@style/WrapBoth">
             <Button style="@style/KeyPadButton.Num"
                     android:text="7"
                     android:id="@+id/keypad_7" />
@@ -70,7 +70,7 @@
                     android:id="@+id/keypad_9" />
         </TableRow>
 
-        <TableRow style="@style/KeyPadRow">
+        <TableRow style="@style/WrapBoth">
             <Button style="@style/KeyPadButton.Num"
                     android:text="0"
                     android:id="@+id/keypad_0" />
@@ -82,7 +82,7 @@
                     android:id="@+id/keypad_clear" />
         </TableRow>
 
-        <TableRow style="@style/KeyPadRow" android:layout_marginTop="15dip">
+        <TableRow style="@style/WrapBoth" android:layout_marginTop="15dip">
             <Button style="@style/KeyPadButton.Action"
                     android:text="+"
                     android:id="@+id/keypad_plus"

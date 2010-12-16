@@ -3,10 +3,12 @@
 
     <!-- THEME -->
 
-    <style name="Theme" parent="android:Theme.Black">
+    <style name="Theme"
+           parent="android:Theme.Black">
         <item name="android:tabWidgetStyle">@style/TabWidget</item>
     </style>
-    <style name="TabWidget" parent="android:TextAppearance.Widget.TabWidget">
+    <style name="TabWidget"
+           parent="android:TextAppearance.Widget.TabWidget">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
@@ -43,29 +45,32 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
     </style>
-    <style name="KeyPadRow">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+    <style name="StatisticText"
+           parent="WrapBoth">
+        <item name="android:textSize">18sp</item>
     </style>
-        <style name="Wrap">
+
+    <!-- Fill/Wrap -->
+    <style name="Wrap">
         <item name="android:layout_width">wrap_content</item>
     </style>
     <style name="Fill">
         <item name="android:layout_width">fill_parent</item>
     </style>
-    <style name="WrapBoth" parent="Wrap">
+    <style name="WrapBoth"
+           parent="Wrap">
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name="FillBoth" parent="Fill">
+    <style name="FillBoth"
+           parent="Fill">
         <item name="android:layout_height">fill_parent</item>
     </style>
-    <style name="WrapFill" parent="Wrap">
+    <style name="WrapFill"
+           parent="Wrap">
         <item name="android:layout_height">fill_parent</item>
     </style>
-    <style name="FillWrap" parent="Fill">
+    <style name="FillWrap"
+           parent="Fill">
         <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="StatisticText" parent="WrapBoth">
-        <item name="android:textSize">18sp</item>
     </style>
 </resources>

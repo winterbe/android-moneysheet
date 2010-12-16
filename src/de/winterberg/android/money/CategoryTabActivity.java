@@ -33,7 +33,7 @@ public class CategoryTabActivity extends TabActivity {
         intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
 
         spec = tabHost.newTabSpec("amount")
-                .setIndicator("Amount", res.getDrawable(R.drawable.ic_tab_amount))
+                .setIndicator(res.getString(R.string.tab_edit), res.getDrawable(R.drawable.ic_tab_amount))
                 .setContent(intent);
         tabHost.addTab(spec);
 
@@ -43,7 +43,7 @@ public class CategoryTabActivity extends TabActivity {
         intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
 
         spec = tabHost.newTabSpec("history")
-                .setIndicator("History", res.getDrawable(R.drawable.ic_tab_history))
+                .setIndicator(res.getString(R.string.tab_history), res.getDrawable(R.drawable.ic_tab_history))
                 .setContent(intent);
         tabHost.addTab(spec);
 
@@ -53,7 +53,7 @@ public class CategoryTabActivity extends TabActivity {
         intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
 
         spec = tabHost.newTabSpec("statistics")
-                .setIndicator("Statistics", res.getDrawable(R.drawable.ic_tab_stats))
+                .setIndicator(res.getString(R.string.tab_stats), res.getDrawable(R.drawable.ic_tab_stats))
                 .setContent(intent);
         tabHost.addTab(spec);
 
