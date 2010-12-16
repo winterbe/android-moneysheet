@@ -28,6 +28,5 @@
         <activity android:name=".StatisticsActivity" />
     </application>
     <uses-sdk android:minSdkVersion="4"
-              android:targetSdkVersion="8"
-              android:maxSdkVersion="9" />
+              android:targetSdkVersion="8" />
 </manifest> 
