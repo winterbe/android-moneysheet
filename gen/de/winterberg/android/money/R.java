@@ -114,18 +114,24 @@ public final class R {
         public static final int stats_to_label=0x7f060015;
     }
     public static final class style {
-        public static final int Fill=0x7f070006;
-        public static final int FillBoth=0x7f070008;
-        public static final int FillWrap=0x7f07000a;
-        public static final int KeyPad=0x7f070003;
-        public static final int KeyPadButton=0x7f070000;
-        public static final int KeyPadButton_Action=0x7f070002;
-        public static final int KeyPadButton_Num=0x7f070001;
-        public static final int KeyPadRow=0x7f070004;
-        public static final int StatisticText=0x7f07000b;
-        public static final int Wrap=0x7f070005;
-        public static final int WrapBoth=0x7f070007;
-        public static final int WrapFill=0x7f070009;
+        public static final int Fill=0x7f070008;
+        public static final int FillBoth=0x7f07000a;
+        public static final int FillWrap=0x7f07000c;
+        public static final int KeyPad=0x7f070005;
+        /**  STYLES 
+         */
+        public static final int KeyPadButton=0x7f070002;
+        public static final int KeyPadButton_Action=0x7f070004;
+        public static final int KeyPadButton_Num=0x7f070003;
+        public static final int KeyPadRow=0x7f070006;
+        public static final int StatisticText=0x7f07000d;
+        public static final int TabWidget=0x7f070001;
+        /**  THEME 
+         */
+        public static final int Theme=0x7f070000;
+        public static final int Wrap=0x7f070007;
+        public static final int WrapBoth=0x7f070009;
+        public static final int WrapFill=0x7f07000b;
     }
     public static final class xml {
         public static final int settings=0x7f040000;

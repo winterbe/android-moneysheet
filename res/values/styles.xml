@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- THEME -->
+
+    <style name="Theme" parent="android:Theme.Black">
+        <item name="android:tabWidgetStyle">@style/TabWidget</item>
+    </style>
+    <style name="TabWidget" parent="android:TextAppearance.Widget.TabWidget">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+
+    <!-- STYLES -->
+
     <style name="KeyPadButton"
            parent="android:Widget.Button">
         <item name="android:layout_height">wrap_content</item>
