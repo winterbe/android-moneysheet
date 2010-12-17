@@ -6,7 +6,7 @@
     <application android:label="@string/app_name"
                  android:icon="@drawable/ic_launcher"
                  android:name="MoneyApplication"
-                 android:debuggable="true"
+                 android:debuggable="false"
                  android:theme="@style/Theme">
         <activity android:name=".MoneyActivity"
                   android:label="@string/app_name">
