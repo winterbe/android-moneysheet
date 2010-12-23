@@ -35,13 +35,13 @@ public final class R {
         public static final int keypad=0x7f02000e;
     }
     public static final class id {
-        public static final int about=0x7f09001e;
+        public static final int about=0x7f09001f;
         public static final int about_version=0x7f090000;
         public static final int add_category=0x7f09001d;
         public static final int amount_value=0x7f090001;
         public static final int category_item=0x7f090011;
         public static final int current_input_value=0x7f090002;
-        public static final int exit=0x7f09001f;
+        public static final int exit=0x7f090020;
         public static final int history_amount=0x7f090013;
         public static final int history_time=0x7f090012;
         public static final int keypad_0=0x7f09000c;
@@ -58,6 +58,7 @@ public final class R {
         public static final int keypad_minus=0x7f090010;
         public static final int keypad_plus=0x7f09000f;
         public static final int keypad_separator=0x7f09000d;
+        public static final int settings=0x7f09001e;
         public static final int stats_average=0x7f09001c;
         public static final int stats_current_amount=0x7f090016;
         public static final int stats_from=0x7f090014;
@@ -94,6 +95,8 @@ public final class R {
         public static final int date_pattern=0x7f060000;
         public static final int empty_categories=0x7f060002;
         public static final int exit_label=0x7f06000b;
+        public static final int haptic_label=0x7f06001e;
+        public static final int haptic_summary=0x7f06001f;
         public static final int ok=0x7f06000e;
         public static final int remove_category_confirm=0x7f060008;
         public static final int remove_category_label=0x7f060007;

@@ -29,4 +29,6 @@
     <string name="tab_edit">Edit</string>
     <string name="tab_history">History</string>
     <string name="tab_stats">Statistics</string>
+    <string name="haptic_label">Haptic feedback</string>
+    <string name="haptic_summary">Enable haptic feedback for keypad buttons</string>
 </resources>

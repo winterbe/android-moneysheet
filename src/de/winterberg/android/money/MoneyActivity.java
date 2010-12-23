@@ -99,9 +99,9 @@ public class MoneyActivity extends ListActivity implements AmountDaoAware {
             case R.id.add_category:
                 openAddCategoryDialog();
                 return true;
-            /*case R.id.settings:
+            case R.id.settings:
                 startActivity(new Intent(this, PrefsActivity.class));
-                return true;*/
+                return true;
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
                 return true;

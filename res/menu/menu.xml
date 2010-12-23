@@ -3,9 +3,9 @@
     <item android:id="@+id/add_category"
           android:title="@string/add_category_label"
           android:icon="@drawable/ic_menu_add" />
-    <!--<item android:id="@+id/settings"
+    <item android:id="@+id/settings"
           android:title="@string/settings_label"
-          android:icon="@drawable/ic_menu_preferences" />-->
+          android:icon="@drawable/ic_menu_preferences" />
     <item android:id="@+id/about"
           android:title="@string/about_label"
           android:icon="@drawable/ic_menu_info_details" />
