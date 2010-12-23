@@ -81,7 +81,7 @@ public class AmountDao extends SQLiteOpenHelper {
     }
 
     public BigDecimal findSumYesterday(String category) {
-        Log.d(TAG, "findSumToday: category=" + category);
+        Log.d(TAG, "findSumYesterday: category=" + category);
         return findSum(category, yesterday().getTime(), yesterday(23, 59, 59).getTime());
     }
 
