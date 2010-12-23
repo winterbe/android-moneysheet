@@ -35,13 +35,14 @@ public final class R {
         public static final int keypad=0x7f02000e;
     }
     public static final class id {
-        public static final int about=0x7f09001f;
+        public static final int about=0x7f090020;
         public static final int about_version=0x7f090000;
-        public static final int add_category=0x7f09001d;
+        public static final int add_category=0x7f09001e;
+        public static final int add_entry=0x7f09001d;
         public static final int amount_value=0x7f090001;
         public static final int category_item=0x7f090011;
         public static final int current_input_value=0x7f090002;
-        public static final int exit=0x7f090020;
+        public static final int exit=0x7f090021;
         public static final int history_amount=0x7f090013;
         public static final int history_time=0x7f090012;
         public static final int keypad_0=0x7f09000c;
@@ -58,7 +59,7 @@ public final class R {
         public static final int keypad_minus=0x7f090010;
         public static final int keypad_plus=0x7f09000f;
         public static final int keypad_separator=0x7f09000d;
-        public static final int settings=0x7f09001e;
+        public static final int settings=0x7f09001f;
         public static final int stats_average=0x7f09001c;
         public static final int stats_current_amount=0x7f090016;
         public static final int stats_from=0x7f090014;
@@ -80,13 +81,15 @@ public final class R {
         public static final int tabs=0x7f030007;
     }
     public static final class menu {
-        public static final int menu=0x7f080000;
+        public static final int history_menu=0x7f080000;
+        public static final int main_menu=0x7f080001;
     }
     public static final class string {
         public static final int about_button_website=0x7f06001a;
         public static final int about_label=0x7f060004;
         public static final int add_category_description=0x7f060006;
         public static final int add_category_label=0x7f060005;
+        public static final int add_entry_label=0x7f060020;
         public static final int amount_label=0x7f06000c;
         public static final int app_name=0x7f060001;
         public static final int cancel=0x7f06000f;

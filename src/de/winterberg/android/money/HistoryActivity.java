@@ -6,16 +6,20 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Date;
 
-import static de.winterberg.android.money.Constants.*;
+import static de.winterberg.android.money.Constants.TIME;
+import static de.winterberg.android.money.Constants.VALUE;
 
 /**
  * Activity for showing all history entries of a category.
@@ -35,6 +39,24 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         initClickListeners();
         category = getIntent().getStringExtra(MoneyActivity.KEY_CATEGORY);
         application = (MoneyApplication) getApplication();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.history_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_entry:
+                Toast.makeText(this, "Add entry...", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
