@@ -40,9 +40,9 @@ public final class R {
         public static final int about_version=0x7f090000;
         public static final int add_category=0x7f090022;
         public static final int add_entry=0x7f090020;
-        public static final int add_history_amount=0x7f090003;
-        public static final int add_history_date=0x7f090001;
-        public static final int add_history_time=0x7f090002;
+        public static final int add_history_amount=0x7f090001;
+        public static final int add_history_date=0x7f090002;
+        public static final int add_history_time=0x7f090003;
         public static final int amount_value=0x7f090004;
         public static final int category_item=0x7f090014;
         public static final int current_input_value=0x7f090005;
@@ -98,6 +98,7 @@ public final class R {
         public static final int add_entry_label=0x7f060023;
         public static final int add_history_amount_label=0x7f060024;
         public static final int add_history_date_label=0x7f060025;
+        public static final int add_history_label=0x7f060028;
         public static final int add_history_time_label=0x7f060026;
         public static final int amount_label=0x7f06000e;
         public static final int app_name=0x7f060001;

@@ -39,4 +39,5 @@
     <string name="add_history_date_label">Datum:</string>
     <string name="add_history_time_label">Uhrzeit:</string>
     <string name="delete_all_entries_label">Alles löschen</string>
+    <string name="add_history_label">Eintrag</string>
 </resources>
