@@ -23,7 +23,8 @@ public class MoneyApplication extends Application implements AmountDaoAware {
     @Override
     public void onCreate() {
         amountDao = new AmountDao(this);
-        dateFormat = new SimpleDateFormat(getResources().getString(R.string.date_pattern));
+        String pattern = getResources().getString(R.string.date_pattern);
+        dateFormat = new SimpleDateFormat(pattern);
         decimalFormat = new DecimalFormat("#,###,##0.00 ¤");
     }
 
