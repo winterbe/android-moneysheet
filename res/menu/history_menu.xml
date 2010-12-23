@@ -3,4 +3,7 @@
     <item android:id="@+id/add_entry"
           android:title="@string/add_entry_label"
           android:icon="@drawable/ic_menu_add" />
+    <item android:id="@+id/delete_all_entries"
+          android:title="@string/delete_all_entries_label"
+          android:icon="@drawable/ic_menu_delete" />
 </menu>

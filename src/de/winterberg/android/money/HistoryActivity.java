@@ -59,6 +59,9 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
                 intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
                 startActivityForResult(intent, REQUEST_CODE);
                 return true;
+            case R.id.delete_all_entries:
+                openRemoveAllEntriesDialog();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -77,7 +80,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
 
         if (amountString == null || amountString.length() == 0)
             return;
-        
+
         try {
             BigDecimal amount = new BigDecimal(amountString);
             if (amount.doubleValue() == .0d)
@@ -133,12 +136,39 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long rowId) {
                 Log.d(TAG, "history entry long-clicked: position=" + position + ", rowId=" + rowId);
-                if (getListView().getCount() > 1) {
+                if (position < getListView().getCount() - 1) {
                     openRemoveHistoryEntryDialog(rowId);
                 }
                 return true;
             }
         });
+    }
+
+    private void openRemoveAllEntriesDialog() {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        doRemoveAll();
+                        break;
+                }
+            }
+        };
+
+        new AlertDialog.Builder(HistoryActivity.this)
+                .setTitle(R.string.remove_all_entries_label)
+                .setMessage(R.string.remove_all_entries_confirm)
+                .setPositiveButton(R.string.ok, dialogClickListener)
+                .setNegativeButton(R.string.cancel, dialogClickListener)
+                .show();
+    }
+
+    private void doRemoveAll() {
+        Log.d(TAG, "removing all history entries for category " + category);
+        AmountDao amountDao = getAmountDao();
+        amountDao.removeAll(category);
+        amountDao.save(category, new BigDecimal(0.0));
+        refreshData();
     }
 
     private void openRemoveHistoryEntryDialog(final long rowId) {

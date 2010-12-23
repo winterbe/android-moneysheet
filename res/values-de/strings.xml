@@ -10,6 +10,8 @@
     <string name="remove_category_confirm">Möchten Sie das Sheet wirklich löschen?</string>
     <string name="remove_history_entry_label">Eintrag entfernen</string>
     <string name="remove_history_entry_confirm">Möchten Sie den Eintrag wirklich löschen?</string>
+    <string name="remove_all_entries_label">Alle Einträge entfernen</string>
+    <string name="remove_all_entries_confirm">Möchten Sie wirklich alle Einträge löschen?</string>
     <string name="exit_label">Beenden</string>
     <string name="amount_label">Gesamt:</string>
     <string name="category_label">Sheet</string>
@@ -36,4 +38,5 @@
     <string name="add_history_amount_label">Betrag:</string>
     <string name="add_history_date_label">Datum:</string>
     <string name="add_history_time_label">Uhrzeit:</string>
+    <string name="delete_all_entries_label">Alles löschen</string>
 </resources>
