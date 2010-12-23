@@ -13,6 +13,42 @@ public final class DateUtils {
         // private
     }
 
+    public static int getSecond(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.SECOND);
+    }
+
+    public static int getMinute(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.MINUTE);
+    }
+
+    public static int getHour(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.HOUR_OF_DAY);
+    }
+
+    public static int getDay(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static int getMonth(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.MONTH);
+    }
+
+    public static int getYear(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal.get(Calendar.YEAR);
+    }
+
     public static long newTimestamp(int year, int month, int day, int hour, int minute, int second) {
         return new GregorianCalendar(year, month, day, hour, minute, second).getTimeInMillis();
     }
