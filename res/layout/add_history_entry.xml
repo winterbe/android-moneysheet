@@ -5,6 +5,21 @@
               android:orientation="vertical">
 
     <TextView style="@style/WrapBoth"
+              android:text="@string/add_history_date_label" />
+
+    <LinearLayout style="@style/FillWrap"
+                  android:orientation="horizontal">
+        <Button style="@style/FillWrap"
+                android:id="@+id/add_history_date"
+                android:layout_weight="1.0"
+                android:onClick="onDateButtonClick" />
+        <Button style="@style/FillWrap"
+                android:id="@+id/add_history_time"
+                android:layout_weight="1.0"
+                android:onClick="onTimeButtonClick" />
+    </LinearLayout>
+
+    <TextView style="@style/WrapBoth"
               android:text="@string/add_history_amount_label" />
 
     <EditText style="@style/FillWrap"
@@ -12,26 +27,17 @@
               android:singleLine="true"
               android:numeric="decimal|signed" />
 
-    <TextView style="@style/WrapBoth"
-              android:text="@string/add_history_date_label" />
-
-    <Button style="@style/WrapBoth"
-            android:id="@+id/add_history_date"
-            android:onClick="onDateButtonClick" />
-
-    <TextView style="@style/WrapBoth"
-              android:text="@string/add_history_time_label" />
-
-    <Button style="@style/WrapBoth"
-            android:id="@+id/add_history_time"
-            android:onClick="onTimeButtonClick" />
-
-    <LinearLayout style="@style/WrapFill"
-                  android:orientation="horizontal">
+    <LinearLayout style="@style/FillWrap"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="20dp">
         <Button style="@style/FillWrap"
-                android:text="@string/save" />
+                android:text="@string/save"
+                android:onClick="onSaveButtonClick"
+                android:layout_weight="1.0" />
         <Button style="@style/FillWrap"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"
+                android:onClick="onCancelButtonClick"
+                android:layout_weight="1.0" />
     </LinearLayout>
 
 </LinearLayout>

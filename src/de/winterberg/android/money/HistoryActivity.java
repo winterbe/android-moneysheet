@@ -13,11 +13,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Date;
 
+import static de.winterberg.android.money.AddHistoryActivity.REQUEST_CODE;
+import static de.winterberg.android.money.AddHistoryActivity.RESULT_CODE;
 import static de.winterberg.android.money.Constants.TIME;
 import static de.winterberg.android.money.Constants.VALUE;
 
@@ -29,7 +32,7 @@ import static de.winterberg.android.money.Constants.VALUE;
 public class HistoryActivity extends ListActivity implements AmountDaoAware {
     private static final String TAG = "History";
 
-    private static final int REQUEST_CODE_ADD_HISTORY = 1;
+
 
     private MoneyApplication application;
 
@@ -56,7 +59,7 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
             case R.id.add_entry:
                 Intent intent = new Intent(this, AddHistoryActivity.class);
                 intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
-                startActivityForResult(intent, REQUEST_CODE_ADD_HISTORY);
+                startActivityForResult(intent, REQUEST_CODE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -65,7 +68,16 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        
+        if (data == null)
+            return;
+
+        if (requestCode != REQUEST_CODE || resultCode != RESULT_CODE)
+            return;
+
+        String amount = data.getStringExtra(AddHistoryActivity.RESULT_KEY_AMOUNT);
+        long timestamp = data.getLongExtra(AddHistoryActivity.RESULT_KEY_TIMESTAMP, System.currentTimeMillis());
+
+        Toast.makeText(this, "Amount=" + amount + ", Timestamp=" + timestamp, Toast.LENGTH_LONG).show();
     }
 
     @Override

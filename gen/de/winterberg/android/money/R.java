@@ -39,9 +39,9 @@ public final class R {
         public static final int about_version=0x7f090000;
         public static final int add_category=0x7f090021;
         public static final int add_entry=0x7f090020;
-        public static final int add_history_amount=0x7f090001;
-        public static final int add_history_date=0x7f090002;
-        public static final int add_history_time=0x7f090003;
+        public static final int add_history_amount=0x7f090003;
+        public static final int add_history_date=0x7f090001;
+        public static final int add_history_time=0x7f090002;
         public static final int amount_value=0x7f090004;
         public static final int category_item=0x7f090014;
         public static final int current_input_value=0x7f090005;
