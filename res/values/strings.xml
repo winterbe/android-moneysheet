@@ -14,6 +14,7 @@
     <string name="amount_label">Total:</string>
     <string name="category_label">Sheet</string>
     <string name="ok">OK</string>
+    <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="category_already_exists">Sheet already exists</string>
     <string name="stats_current_amount_label">Total:</string>
@@ -32,4 +33,7 @@
     <string name="haptic_label">Haptic feedback</string>
     <string name="haptic_summary">Enable haptic feedback for keypad buttons</string>
     <string name="add_entry_label">Add entry</string>
+    <string name="add_history_amount_label">Amount:</string>
+    <string name="add_history_date_label">Date:</string>
+    <string name="add_history_time_label">Time:</string>
 </resources>

@@ -14,6 +14,7 @@
     <string name="amount_label">Gesamt:</string>
     <string name="category_label">Sheet</string>
     <string name="ok">OK</string>
+    <string name="save">Speichern</string>
     <string name="cancel">Abbrechen</string>
     <string name="category_already_exists">Sheet existiert bereits</string>
     <string name="stats_current_amount_label">Gesamt:</string>
@@ -32,4 +33,7 @@
     <string name="haptic_label">Haptisches Feedback</string>
     <string name="haptic_summary">Aktiviere haptisches Feedback für Eingabefelder</string>
     <string name="add_entry_label">Neuer Eintrag</string>
+    <string name="add_history_amount_label">Betrag:</string>
+    <string name="add_history_date_label">Datum:</string>
+    <string name="add_history_time_label">Uhrzeit:</string>
 </resources>

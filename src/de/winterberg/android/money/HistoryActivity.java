@@ -3,6 +3,7 @@ package de.winterberg.android.money;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -28,6 +28,8 @@ import static de.winterberg.android.money.Constants.VALUE;
  */
 public class HistoryActivity extends ListActivity implements AmountDaoAware {
     private static final String TAG = "History";
+
+    private static final int REQUEST_CODE_ADD_HISTORY = 1;
 
     private MoneyApplication application;
 
@@ -52,11 +54,18 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_entry:
-                Toast.makeText(this, "Add entry...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, AddHistoryActivity.class);
+                intent.putExtra(MoneyActivity.KEY_CATEGORY, category);
+                startActivityForResult(intent, REQUEST_CODE_ADD_HISTORY);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        
     }
 
     @Override

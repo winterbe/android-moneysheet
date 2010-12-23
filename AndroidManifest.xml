@@ -26,6 +26,7 @@
                   android:screenOrientation="portrait" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".StatisticsActivity" />
+        <activity android:name=".AddHistoryActivity" />
     </application>
     <uses-sdk android:minSdkVersion="4"
               android:targetSdkVersion="8" />

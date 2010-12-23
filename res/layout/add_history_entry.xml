@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/FillBoth"
+              android:orientation="vertical">
+
+    <TextView style="@style/WrapBoth"
+              android:text="@string/add_history_amount_label" />
+
+    <EditText style="@style/FillWrap"
+              android:id="@+id/add_history_amount"
+              android:singleLine="true" />
+
+    <TextView style="@style/WrapBoth"
+              android:text="@string/add_history_date_label" />
+
+    <Button style="@style/WrapBoth"
+            android:id="@+id/add_history_date" />
+
+    <TextView style="@style/WrapBoth"
+              android:text="@string/add_history_time_label" />
+
+    <Button style="@style/WrapBoth"
+            android:id="@+id/add_history_time" />
+
+    <Button style="@style/WrapBoth"
+            android:text="@string/save" />
+
+    <Button style="@style/WrapBoth"
+            android:text="@string/cancel" />
+
+
+</LinearLayout>
