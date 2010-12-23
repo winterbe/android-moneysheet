@@ -32,8 +32,6 @@ import static de.winterberg.android.money.Constants.VALUE;
 public class HistoryActivity extends ListActivity implements AmountDaoAware {
     private static final String TAG = "History";
 
-
-
     private MoneyApplication application;
 
     private String category;
@@ -74,10 +72,20 @@ public class HistoryActivity extends ListActivity implements AmountDaoAware {
         if (requestCode != REQUEST_CODE || resultCode != RESULT_CODE)
             return;
 
-        String amount = data.getStringExtra(AddHistoryActivity.RESULT_KEY_AMOUNT);
+        String amountString = data.getStringExtra(AddHistoryActivity.RESULT_KEY_AMOUNT);
         long timestamp = data.getLongExtra(AddHistoryActivity.RESULT_KEY_TIMESTAMP, System.currentTimeMillis());
 
-        Toast.makeText(this, "Amount=" + amount + ", Timestamp=" + timestamp, Toast.LENGTH_LONG).show();
+        if (amountString == null || amountString.length() == 0)
+            return;
+        
+        try {
+            BigDecimal amount = new BigDecimal(amountString);
+            if (amount.doubleValue() == .0d)
+                return;
+            getAmountDao().save(category, amount, timestamp);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Value is invalid: " + amountString, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

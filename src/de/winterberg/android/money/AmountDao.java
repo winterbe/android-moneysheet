@@ -217,7 +217,7 @@ public class AmountDao extends SQLiteOpenHelper {
         save(category, amount, timeInMillis);
     }
 
-    private void save(String category, BigDecimal amount, long timeInMillis) {
+    public void save(String category, BigDecimal amount, long timeInMillis) {
         ContentValues values = createValues(category, amount, timeInMillis);
         SQLiteDatabase db = getWritableDatabase();
         db.insertOrThrow(TABLE_NAME, null, values);
